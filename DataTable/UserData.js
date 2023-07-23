@@ -41,29 +41,79 @@ async function scrapeUserData(playerTag) {
         const endorsementLevel = endorsementIconSrc.match(/endorsement\/(\d+)/)[1];
 
         //玩家竞技段位等级（仅PC，暂不支持主机端）
-        const roles = ['Tank', 'Damage', 'Support'];
-        const playerCompetitiveInfo = {
-            PC: {}
+        /*const playerCompetitiveInfo = {
+            PC: {
+                Tank: {},
+                Damage: {},
+                Support: {}
+            }
         };
+
+        const roles = ['Tank', 'Damage', 'Support'];
         roles.forEach((role) => {
-            const roleElement = $(`.Profile-playerSummary--roleWrapper:contains(${role})`);
-            if (roleElement.length) { // Use length to check if the element exists
-                const rankElement = roleElement.find('.Profile-playerSummary--rank');
+            const roleWrapper = $(`.Profile-playerSummary--roleWrapper:has(.Profile-playerSummary--role img[src*="${role.toLowerCase()}"])`);
+            if (roleWrapper.length > 0) {
+                const rankElement = roleWrapper.find('.Profile-playerSummary--rank');
                 const rankSrc = rankElement.attr('src');
-                console.log(`[${currentTime}] Role: ${role}, RankSrc: ${rankSrc}`)
-                const rankName = rankSrc ? rankSrc.match(/rank\/(.*?)-\d+/)[1] : '';
+                const rankName = rankSrc ? rankSrc.match(/rank\/(.*?)-\w+/)[1] : '';
                 const rankTier = rankSrc ? parseInt(rankSrc.match(/rank\/.*?-(\d+)/)[1]) : 0;
 
-                // Define the variables for each role
-                const playerCompetitivePCRole = `playerCompetitivePC${role}`;
-                const playerCompetitivePCRoleTier = `playerCompetitivePC${role}Tier`;
-
                 playerCompetitiveInfo.PC[role] = {
-                    [playerCompetitivePCRole]: rankName,
-                    [playerCompetitivePCRoleTier]: rankTier
+                    [`playerCompetitivePC${role}`]: rankName,
+                    [`playerCompetitivePC${role}Tier`]: rankTier
                 };
+            } else {
+                // 如果没有找到该角色，则设置为null
+                playerCompetitiveInfo.PC[role] = null;
+            }
+        });*/
+        const playerCompetitiveInfo = {
+            PC: {
+                Tank: {},
+                Damage: {},
+                Support: {}
+            }
+        };
+
+        const roles = ['Tank', 'Damage', 'Support'];
+        roles.forEach((role) => {
+            let roleWrapper;
+
+            // 处理Damage角色图片标签的特殊情况
+            if (role === 'Damage') {
+                roleWrapper = $('.Profile-playerSummary--roleWrapper:has(.Profile-playerSummary--role img[src*="offense"])');
+            } else {
+                roleWrapper = $(`.Profile-playerSummary--roleWrapper:has(.Profile-playerSummary--role img[src*="${role.toLowerCase()}"])`);
+            }
+
+            if (roleWrapper.length > 0) {
+                const rankElement = roleWrapper.find('.Profile-playerSummary--rank');
+                const rankSrc = rankElement.attr('src');
+                const rankName = rankSrc ? rankSrc.match(/rank\/(.*?)-\w+/)[1].replace("Tier", "") : '';
+                const rankTier = rankSrc ? parseInt(rankSrc.match(/rank\/.*?-(\d+)/)[1]) : 0;
+
+                if (role === 'Tank') {
+                    playerCompetitiveInfo.PC.Tank = {
+                        playerCompetitivePCTank: rankName,
+                        playerCompetitivePCTankTier: rankTier
+                    };
+                } else if (role === 'Damage') {
+                    playerCompetitiveInfo.PC.Damage = {
+                        playerCompetitivePCDamage: rankName,
+                        playerCompetitivePCDamageTier: rankTier
+                    };
+                } else if (role === 'Support') {
+                    playerCompetitiveInfo.PC.Support = {
+                        playerCompetitivePCSupport: rankName,
+                        playerCompetitivePCSupportTier: rankTier
+                    };
+                }
+            } else {
+                // 如果没有找到该角色，则设置为null
+                playerCompetitiveInfo.PC[role] = null;
             }
         });
+
 
         /*
         //玩家英雄使用时长排行（仅PC，暂不支持主机端）
@@ -78,7 +128,8 @@ async function scrapeUserData(playerTag) {
                 playerIcon: playerIcon.trim(),
                 endorsementLevel: parseInt(endorsementLevel),
             },
-            playerCompetitiveInfo: {
+            playerCompetitiveInfo: playerCompetitiveInfo,
+            /*playerCompetitiveInfo: {
                 PC: {
                     Tank: {
                         playerCompetitivePCTank: playerCompetitivePCTank,
@@ -94,7 +145,7 @@ async function scrapeUserData(playerTag) {
                     },
                 },
                 Console: {},
-            },
+            },*/
         };
     } catch (error) {
         const currentTime = new Date().toISOString();
