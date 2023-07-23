@@ -39,34 +39,6 @@ async function scrapeUserData(playerTag) {
         //玩家赞赏，通过提取赞赏图标url的内容来区分赞赏等级
         const endorsementIconSrc = $('.Profile-playerSummary--endorsement').attr('src');
         const endorsementLevel = endorsementIconSrc.match(/endorsement\/(\d+)/)[1];
-
-        //玩家竞技段位等级（仅PC，暂不支持主机端）
-        /*const playerCompetitiveInfo = {
-            PC: {
-                Tank: {},
-                Damage: {},
-                Support: {}
-            }
-        };
-
-        const roles = ['Tank', 'Damage', 'Support'];
-        roles.forEach((role) => {
-            const roleWrapper = $(`.Profile-playerSummary--roleWrapper:has(.Profile-playerSummary--role img[src*="${role.toLowerCase()}"])`);
-            if (roleWrapper.length > 0) {
-                const rankElement = roleWrapper.find('.Profile-playerSummary--rank');
-                const rankSrc = rankElement.attr('src');
-                const rankName = rankSrc ? rankSrc.match(/rank\/(.*?)-\w+/)[1] : '';
-                const rankTier = rankSrc ? parseInt(rankSrc.match(/rank\/.*?-(\d+)/)[1]) : 0;
-
-                playerCompetitiveInfo.PC[role] = {
-                    [`playerCompetitivePC${role}`]: rankName,
-                    [`playerCompetitivePC${role}Tier`]: rankTier
-                };
-            } else {
-                // 如果没有找到该角色，则设置为null
-                playerCompetitiveInfo.PC[role] = null;
-            }
-        });*/
         const playerCompetitiveInfo = {
             PC: {
                 Tank: {},
