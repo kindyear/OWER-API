@@ -10,7 +10,7 @@ const config = require('./config/config')
 const app = express();
 
 //API服务端口,修改请前往config文件夹中的config.js中修改
-const PORT = config.PORT || 3000;
+const PORT = config.PORT || 16524;
 
 function authenticate(req, res, next) {
     const {apiKey} = req.query;

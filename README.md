@@ -4,17 +4,137 @@ OWER API是用于获取Overwatch（守望先锋）国际服玩家数据的一个
 
 数据来源于[Overwatch官方网站](https://overwatch.blizzard.com/en-us/career)
 
+# 部署及使用
+
+## 部署
+
+要求：NodeJS V18.15.0（此版本上正常运行，其他版本未做测试）
+
+端口默认为``16524``
+
+> 注意：由于中国大陆的网络环境，国际服的数据获取速度可能会很慢，甚至无法获取，所以建议在国外的服务器上部署
+
+确保部署主机上已经安装了Git，并在准备部署的目录下执行以下命令：
+
+```bash
+git clone https://github.com/kindyear/OWER-API.git
+```
+
+然后运行项目
+
+```bash
+node app.js
+```
+
+不建议将端口设置为80或者其它常用端口，防止和已有服务，例如Nginx或者Apache等服务冲突，你可以使用反向代理功能将其代理到80端口或者其它你想设置的端口上
+
+## API文档
+
+API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
+
+其中将xxxx替换为你要请求的路由接口
+
+### 全局参数
+
+``apiKey``：必需，用于认证访问API的访问密钥。可在``项目目录/config/config.js``中修改
+
+### API端点
+
+#### 获取玩家基础生涯信息
+
+- URL：``/v1/api/PlayerInfo/{playerTag}``
+- 方法：``GET``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 响应
+
+```json
+{
+  "playerBaseInfo": {
+    "playerTag": "KINDYEAR#1336",
+    "playerName": "KINDYEAR",
+    "playerTitle": "Extraterrestrial",
+    "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5c670baeda5a7b2ed707c940f6b17773e9fd41fe783a8810ea9283cd55d6fd43.png",
+    "endorsementLevel": 2
+  },
+  "playerCompetitiveInfo": {
+    "PC": {
+      "Tank": {
+        "playerCompetitivePCTank": "Platinum",
+        "playerCompetitivePCTankTier": 2
+      },
+      "Damage": {
+        "playerCompetitivePCDamage": "Gold",
+        "playerCompetitivePCDamageTier": 2
+      },
+      "Support": {
+        "playerCompetitivePCSupport": "Gold",
+        "playerCompetitivePCSupportTier": 3
+      }
+    }
+  },
+  "currentTime": 1690110879
+}
+```
+
+数据解释：
+
+* ``playerBaseInfo``：玩家基础信息
+  * ``playerTag``：玩家的BattleTag（战网ID）
+  * ``playerName``：玩家的昵称
+  * ``playerTitle``：玩家的头衔
+  * ``playerIcon``：玩家的头像
+  * ``endorsementLevel``：玩家的赞赏等级
+* ``playerCompetitiveInfo``：玩家的竞技比赛信息
+  * ``PC``：玩家的PC端竞技比赛信息
+    * ``Tank``：玩家的坦克信息
+      * ``playerCompetitivePCTank``：玩家的坦克段位
+      * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
+    * ``Damage``：玩家的输出信息
+      * ``playerCompetitivePCDamage``：玩家的输出段位
+      * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
+    * ``Support``：玩家的辅助信息
+      * ``playerCompetitivePCSupport``：玩家的辅助段位
+      * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
+* ``currentTime``：当前时间戳
+
+> 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
+
+#### 获取玩家快速游戏信息（未完成）
+
+- URL：`/v1/api/playerQuickInfo/{playerTag}`
+- 方法：``GET``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 响应
+
+```json
+null
+```
+
+数据解释：
+
+#### 获取玩家竞技游戏信息（未完成）
+
+- URL：`/v1/api/playerCompetitiveInfo/{playerTag}`
+- 方法：``GET``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 响应
+
+```json
+null
+```
+
+数据解释：
+
 # 启发 / 感谢
 
 > 排名不分前后
 
-https://zusor.io/
+- https://zusor.io/
+- Linus
+- 花散里
+- 低调做人
 
-Linus
-
-花散里
-
-低调做人
+# 许可证
 
 # 碎碎念
 
