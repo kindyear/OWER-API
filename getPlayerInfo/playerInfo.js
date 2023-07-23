@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const {response} = require("express");
 
 // 提取用户数据的函数
-async function scrapeUserData(playerTag) {
+async function playerInfo(playerTag) {
     try {
         const currentTime = new Date().toISOString();
         console.log(`[${currentTime}] Received API request:`, playerTag);
@@ -85,11 +85,7 @@ async function scrapeUserData(playerTag) {
                 playerCompetitiveInfo.PC[role] = null;
             }
         });
-
-
-        /*
-        //玩家英雄使用时长排行（仅PC，暂不支持主机端）
-        const playerPCTopHeroes_TimePlayed;*/
+        const currentUNIXTime = Math.floor(Date.now() / 1000);
         await browser.close();
         // 构造JSON格式输出
         return {
@@ -103,6 +99,8 @@ async function scrapeUserData(playerTag) {
             },
             //用户竞技信息
             playerCompetitiveInfo: playerCompetitiveInfo,
+            currentTime: currentUNIXTime,
+
 
         };
     } catch (error) {
@@ -112,4 +110,4 @@ async function scrapeUserData(playerTag) {
     }
 }
 
-module.exports = {scrapeUserData};
+module.exports = {playerInfo};
