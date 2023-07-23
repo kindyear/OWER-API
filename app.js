@@ -44,15 +44,11 @@ app.get('/v1/api/playerInfo', async (req, res) => {
 
 // 用户快速游戏信息API路由
 app.get('/v1/api/playerquickplayinfo', async (req, res) => {
-    // 实现获取玩家快速比赛信息的逻辑
-    // 这里省略具体的实现，您可以根据需要自行编写逻辑
     res.json({message: '获取玩家快速比赛信息'});
 });
 
 //用户竞技游戏信息API路由
 app.get('/v1/api/playercompetitiveinfo', async (req, res) => {
-    // 实现获取玩家竞技比赛信息的逻辑
-    // 这里省略具体的实现，您可以根据需要自行编写逻辑
     res.json({message: '获取玩家竞技比赛信息'});
 });
 
