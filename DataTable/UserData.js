@@ -5,6 +5,9 @@ const {response} = require("express");
 // 提取用户数据的函数
 async function scrapeUserData(playerTag) {
     try {
+        const currentTime = new Date().toISOString();
+        console.log(`[${currentTime}] Received API request:`, playerTag);
+
         const url = `https://overwatch.blizzard.com/en-us/career/${encodeURIComponent(playerTag)}/`;
 
         const browser = await puppeteer.launch({headless: "new"});
@@ -23,7 +26,7 @@ async function scrapeUserData(playerTag) {
             }
         });
         // 访问网页
-        await page.goto(url);
+        await page.goto(url, {waitUntil: 'domcontentloaded'});
 
         // 获取页面内容
         const content = await page.content();
@@ -38,19 +41,30 @@ async function scrapeUserData(playerTag) {
         const endorsementLevel = endorsementIconSrc.match(/endorsement\/(\d+)/)[1];
 
         //玩家竞技段位等级（仅PC，暂不支持主机端）
-        const ranks = {};
-
         const roles = ['Tank', 'Damage', 'Support'];
-        for (const role of roles) {
+        const playerCompetitiveInfo = {
+            PC: {}
+        };
+        roles.forEach((role) => {
             const roleElement = $(`.Profile-playerSummary--roleWrapper:contains(${role})`);
-            const rankElement = roleElement.find('.Profile-playerSummary--rank');
-            const rankSrc = rankElement.attr('src');
-            const rankName = rankSrc.match(/rank\/(.*?)-/)[1];
-            const rankTier = rankSrc.match(/rank\/.*?-(\d+)/)[1];
+            if (roleElement.length) { // Use length to check if the element exists
+                const rankElement = roleElement.find('.Profile-playerSummary--rank');
+                const rankSrc = rankElement.attr('src');
+                console.log(`[${currentTime}] Role: ${role}, RankSrc: ${rankSrc}`)
+                const rankName = rankSrc ? rankSrc.match(/rank\/(.*?)-\d+/)[1] : '';
+                const rankTier = rankSrc ? parseInt(rankSrc.match(/rank\/.*?-(\d+)/)[1]) : 0;
 
-            ranks[`playerCompetitivePC${role}`] = rankName;
-            ranks[`playerCompetitivePC${role}Tier`] = parseInt(rankTier);
-        }
+                // Define the variables for each role
+                const playerCompetitivePCRole = `playerCompetitivePC${role}`;
+                const playerCompetitivePCRoleTier = `playerCompetitivePC${role}Tier`;
+
+                playerCompetitiveInfo.PC[role] = {
+                    [playerCompetitivePCRole]: rankName,
+                    [playerCompetitivePCRoleTier]: rankTier
+                };
+            }
+        });
+
         /*
         //玩家英雄使用时长排行（仅PC，暂不支持主机端）
         const playerPCTopHeroes_TimePlayed;*/
@@ -67,22 +81,24 @@ async function scrapeUserData(playerTag) {
             playerCompetitiveInfo: {
                 PC: {
                     Tank: {
-                        playerCompetitivePCTank: ranks.playerCompetitivePCTank,
-                        playerCompetitivePCTankTier: ranks.playerCompetitivePCTankTier,
+                        playerCompetitivePCTank: playerCompetitivePCTank,
+                        playerCompetitivePCTankTier: playerCompetitivePCTankTier,
                     },
                     Damage: {
-                        playerCompetitivePCDamage: ranks.playerCompetitivePCDamage,
-                        playerCompetitivePCDamageTier: ranks.playerCompetitivePCDamageTier,
+                        playerCompetitivePCDamage: playerCompetitivePCDamage,
+                        playerCompetitivePCDamageTier: playerCompetitivePCDamageTier,
                     },
                     Support: {
-                        playerCompetitivePCSupport: ranks.playerCompetitivePCSupport,
-                        playerCompetitivePCSupportTier: ranks.playerCompetitivePCSupportTier,
+                        playerCompetitivePCSupport: playerCompetitivePCSupport,
+                        playerCompetitivePCSupportTier: playerCompetitivePCSupportTier,
                     },
                 },
                 Console: {},
             },
         };
     } catch (error) {
+        const currentTime = new Date().toISOString();
+        console.error(`[${currentTime}] Error:`, error.message);
         throw new Error('无法获取数据。');
     }
 }
