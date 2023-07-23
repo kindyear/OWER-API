@@ -44,7 +44,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - URL：``/v1/api/PlayerInfo/{playerTag}``
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
 - 响应
 
 ```json
@@ -103,7 +103,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - URL：`/v1/api/playerQuickInfo/{playerTag}`
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
 - 响应
 
 ```json
@@ -116,7 +116,7 @@ null
 
 - URL：`/v1/api/playerCompetitiveInfo/{playerTag}`
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR#1336``
+- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
 - 响应
 
 ```json
