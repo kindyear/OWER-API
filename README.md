@@ -50,7 +50,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 ```json
 {
   "playerBaseInfo": {
-    "playerTag": "KINDYEAR#1336",
+    "playerTag": "KINDYEAR-1336",
     "playerName": "KINDYEAR",
     "playerTitle": "Extraterrestrial",
     "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5c670baeda5a7b2ed707c940f6b17773e9fd41fe783a8810ea9283cd55d6fd43.png",
