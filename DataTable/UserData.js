@@ -93,6 +93,7 @@ async function scrapeUserData(playerTag) {
         await browser.close();
         // 构造JSON格式输出
         return {
+            //用户基础生涯信息
             playerBaseInfo: {
                 playerTag: playerTag,
                 playerName: playerName.trim(),
@@ -100,24 +101,9 @@ async function scrapeUserData(playerTag) {
                 playerIcon: playerIcon.trim(),
                 endorsementLevel: parseInt(endorsementLevel),
             },
+            //用户竞技信息
             playerCompetitiveInfo: playerCompetitiveInfo,
-            /*playerCompetitiveInfo: {
-                PC: {
-                    Tank: {
-                        playerCompetitivePCTank: playerCompetitivePCTank,
-                        playerCompetitivePCTankTier: playerCompetitivePCTankTier,
-                    },
-                    Damage: {
-                        playerCompetitivePCDamage: playerCompetitivePCDamage,
-                        playerCompetitivePCDamageTier: playerCompetitivePCDamageTier,
-                    },
-                    Support: {
-                        playerCompetitivePCSupport: playerCompetitivePCSupport,
-                        playerCompetitivePCSupportTier: playerCompetitivePCSupportTier,
-                    },
-                },
-                Console: {},
-            },*/
+
         };
     } catch (error) {
         const currentTime = new Date().toISOString();
