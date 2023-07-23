@@ -1,6 +1,6 @@
 # OWER-API
 
-OWER API是用于获取Overwatch（守望先锋）国际服玩家数据的一个API程序
+OWER API是用于获取Overwatch2（守望先锋2）国际服玩家生涯数据的一个API程序
 
 数据来源于[Overwatch官方网站](https://overwatch.blizzard.com/en-us/career)
 
