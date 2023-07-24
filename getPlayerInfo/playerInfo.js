@@ -46,6 +46,12 @@ async function playerInfo(playerTag) {
         const content = await page.content();
         const $ = cheerio.load(content);
 
+        // 玩家标签是否存在
+        const errorElement = await page.$('.error-contain');
+        if (errorElement) {
+            throw new Error('\u001b[33m'+ playerTag + '\u001b[0m Not Found');
+        }
+
         // 玩家基础信息
         const playerName = $('h1.Profile-player--name').text();
         const playerTitle = $('h2.Profile-player--title').text();
@@ -120,7 +126,7 @@ async function playerInfo(playerTag) {
     } catch (error) {
         const currentTime = new Date().toISOString();
         console.error(`${getCurrentTime()} Error:`, error.message);
-        throw new Error('无法获取数据。');
+        throw new Error('Cannot get data.');
     }
 }
 

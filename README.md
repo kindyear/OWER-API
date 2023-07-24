@@ -96,6 +96,10 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
             * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
 * ``currentTime``：当前时间戳
 
+> 由于暴雪的限制，无法获取到五百强的具体排名，所有五百强的段位显示为GrandMaster-1，也就是宗师1
+> 
+> 此外，暴雪似乎并没有提供开放职责的段位信息（游戏里面有但是我弄不出来），所以这里全部显示的是预设职责的段位
+
 > 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
 
 ### PC平台端口数据

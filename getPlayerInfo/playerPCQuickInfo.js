@@ -27,10 +27,27 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
 
         const browser = await puppeteer.launch({headless: "new"});
         const page = await browser.newPage();
+        // 开启请求拦截
+        await page.setRequestInterception(true);
+
+        // 请求拦截处理
+        page.on('request', (request) => {
+            // 阻止图片实际下载，但允许获取图片的 URL 信息
+            if (request.resourceType() === 'image') {
+                request.abort();
+            } else {
+                request.continue();
+            }
+        });
 
         // 设置较长的超时时间（单位：毫秒）
         await page.goto(url, {waitUntil: 'domcontentloaded', timeout: 30000});
 
+        // 玩家标签是否存在
+        const errorElement = await page.$('.error-contain');
+        if (errorElement) {
+            throw new Error('\u001b[33m'+ playerTag + '\u001b[0m Not Found');
+        }
         // 等待目标元素加载完成
         await page.waitForSelector('.Profile-heroSummary--view.quickPlay-view.is-active .Profile-progressBars.is-active', {timeout: 60000});
 
@@ -74,9 +91,8 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
             currentTime: currentUNIXTime
         };
     } catch (error) {
-        const currentTime = new Date().toISOString();
-        console.error(`[${currentTime}] Error:`, error.message);
-        throw new Error('无法获取数据。');
+        console.error(`${getCurrentTime()} Error:`, error.message);
+        throw new Error('Cannot get data.');
     }
 }
 

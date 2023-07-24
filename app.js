@@ -1,9 +1,15 @@
 const express = require('express');
 
 console.log(`Starting server...`);
+
+//  玩家基础信息
 const appPlayerInfo = require('./getPlayerInfo/playerInfo');
+//  玩家快速/竞技游戏英雄排行榜数据
 const appPlayerPCQuickInfo = require('./getPlayerInfo/playerPCQuickInfo');
 const appPlayerPCCompetitiveInfo = require('./getPlayerInfo/playerPCCompetitiveInfo');
+//  玩家快速/竞技游戏英雄数据
+const appPlayerPCQuickHerosInfo = require('./getPlayerInfo/playerPCQuickHerosInfo');
+const appPlayerPCCompetitiveHerosInfo = require('./getPlayerInfo/playerPCCompetitiveHerosInfo');
 /*
 // 主机数据功能，暂未开发
 const appPlayerConsoleQuickInfo = require('./getPlayerInfo/playerConsoleQuickInfo');
@@ -14,6 +20,7 @@ const app = express();
 const {getCurrentTime} = require('./utils');
 const PORT = config.PORT || 16524;
 const fs = require('fs');
+const {HOST} = require("./config/config");
 
 //  处理package.json文件
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
@@ -44,7 +51,7 @@ app.get('/v1/api/playerInfo', async (req, res) => {
         res.json(playerData);
         console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
     } catch (error) {
-        console.error('Error:', error.message);
+        console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
     }
 });
@@ -73,17 +80,10 @@ app.get('/v1/api/playerPCQuickInfo', async (req, res) => {
         res.json(playerData);
         console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag为黄色
     } catch (error) {
-        console.error('Error:', error.message);
+        console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
     }
 });
-
-//  主机平台玩家快速游戏信息（未开发）
-/*
-app.get('/v1/api/playerConsoleQuickInfo', async (req, res) => {
-
-});
-*/
 
 //  PC平台玩家竞技比赛信息
 app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
@@ -109,11 +109,23 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
         res.json(playerData);
         console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag为黄色
     } catch (error) {
-        console.error('Error:', error.message);
+        console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
     }
 });
 
+//  PC平台玩家快速游戏英雄数据
+app.get('/v1/api/playerPCQuickHerosInfo', async (req, res) => {});
+
+//  PC平台玩家竞技比赛英雄数据
+app.get('/v1/api/playerPCCompetitiveHerosInfo', async (req, res) => {});
+
+//  主机平台玩家快速游戏信息（未开发）
+/*
+app.get('/v1/api/playerConsoleQuickInfo', async (req, res) => {
+
+});
+*/
 //  主机平台玩家竞技比赛信息（未开发）
 /*app.get('/v1/api/playerConsoleCompetitiveInfo', async (req, res) => {
     res.json({message: '获取玩家竞技比赛信息'});
@@ -121,5 +133,5 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`${getCurrentTime()} OWER-API Version: ${version}`)
-    console.log(`${getCurrentTime()} OWER-API Service is running on http://localhost:${PORT}`);
+    console.log(`${getCurrentTime()} OWER-API Service is running on http://${HOST}:${PORT}`);
 });
