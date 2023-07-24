@@ -137,128 +137,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
             "heroData": "44%"
         },
         {
-            "heroName": "Pharah",
-            "heroData": "34%"
-        },
-        {
-            "heroName": "Winston",
-            "heroData": "34%"
-        },
-        {
-            "heroName": "Wrecking Ball",
-            "heroData": "32%"
-        },
-        {
-            "heroName": "Mercy",
-            "heroData": "32%"
-        },
-        {
-            "heroName": "Widowmaker",
-            "heroData": "31%"
-        },
-        {
-            "heroName": "Baptiste",
-            "heroData": "31%"
-        },
-        {
-            "heroName": "Cassidy",
-            "heroData": "30%"
-        },
-        {
-            "heroName": "Zarya",
-            "heroData": "30%"
-        },
-        {
-            "heroName": "Soldier: 76",
-            "heroData": "30%"
-        },
-        {
-            "heroName": "Junker Queen",
-            "heroData": "30%"
-        },
-        {
-            "heroName": "Symmetra",
-            "heroData": "28%"
-        },
-        {
-            "heroName": "Orisa",
-            "heroData": "27%"
-        },
-        {
-            "heroName": "Kiriko",
-            "heroData": "27%"
-        },
-        {
-            "heroName": "Hanzo",
-            "heroData": "27%"
-        },
-        {
-            "heroName": "Zenyatta",
-            "heroData": "26%"
-        },
-        {
-            "heroName": "Bastion",
-            "heroData": "26%"
-        },
-        {
-            "heroName": "Ashe",
-            "heroData": "25%"
-        },
-        {
-            "heroName": "Reaper",
-            "heroData": "24%"
-        },
-        {
-            "heroName": "Lifeweaver",
-            "heroData": "22%"
-        },
-        {
-            "heroName": "Echo",
-            "heroData": "22%"
-        },
-        {
-            "heroName": "D.Va",
-            "heroData": "22%"
-        },
-        {
-            "heroName": "Junkrat",
-            "heroData": "22%"
-        },
-        {
-            "heroName": "Doomfist",
-            "heroData": "22%"
-        },
-        {
-            "heroName": "Lúcio",
-            "heroData": "20%"
-        },
-        {
-            "heroName": "Ramattra",
-            "heroData": "20%"
-        },
-        {
-            "heroName": "Tracer",
-            "heroData": "19%"
-        },
-        {
-            "heroName": "Genji",
-            "heroData": "16%"
-        },
-        {
-            "heroName": "Ana",
-            "heroData": "14%"
-        },
-        {
-            "heroName": "Reinhardt",
-            "heroData": "0"
-        },
-        {
-            "heroName": "Sombra",
-            "heroData": "0"
-        },
-        {
-            "heroName": "Brigitte",
-            "heroData": "0"
+            "heroName": ".......",
+            "heroData": "......."
         },
         {
             "heroName": "Moira",
@@ -299,8 +179,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
   |    `multikill-best`     |     角色最多单次消灭     |
   |    `objective-kills`    |     角色目标点内击杀     |
 
-  注释：``win-percentage``参数为**竞技模式**
-  独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
+  注释：``win-percentage``参数为**竞技模式**独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
 
 ### Console主机平台端口数据
 
