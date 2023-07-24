@@ -79,22 +79,22 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 数据解释：
 
 * ``playerBaseInfo``：玩家基础信息
-  * ``playerTag``：玩家的BattleTag（战网ID）
-  * ``playerName``：玩家的昵称
-  * ``playerTitle``：玩家的头衔
-  * ``playerIcon``：玩家的头像
-  * ``endorsementLevel``：玩家的赞赏等级
+    * ``playerTag``：玩家的BattleTag（战网ID）
+    * ``playerName``：玩家的昵称
+    * ``playerTitle``：玩家的头衔
+    * ``playerIcon``：玩家的头像
+    * ``endorsementLevel``：玩家的赞赏等级
 * ``playerCompetitiveInfo``：玩家的竞技比赛信息
-  * ``PC``：玩家的PC端竞技比赛信息
-    * ``Tank``：玩家的坦克信息
-      * ``playerCompetitivePCTank``：玩家的坦克段位
-      * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
-    * ``Damage``：玩家的输出信息
-      * ``playerCompetitivePCDamage``：玩家的输出段位
-      * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
-    * ``Support``：玩家的辅助信息
-      * ``playerCompetitivePCSupport``：玩家的辅助段位
-      * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
+    * ``PC``：玩家的PC端竞技比赛信息
+        * ``Tank``：玩家的坦克信息
+            * ``playerCompetitivePCTank``：玩家的坦克段位
+            * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
+        * ``Damage``：玩家的输出信息
+            * ``playerCompetitivePCDamage``：玩家的输出段位
+            * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
+        * ``Support``：玩家的辅助信息
+            * ``playerCompetitivePCSupport``：玩家的辅助段位
+            * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
 * ``currentTime``：当前时间戳
 
 > 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
@@ -124,6 +124,13 @@ null
 ```
 
 数据解释：
+
+# TODO
+
+- [x] 玩家基础游戏信息
+- [x] 玩家快速游戏信息
+- [x] 玩家竞技游戏信息
+- [ ] 玩家各英雄信息
 
 # 启发 / 感谢
 

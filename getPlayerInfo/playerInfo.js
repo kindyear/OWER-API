@@ -1,3 +1,7 @@
+/*
+    playerInfo
+    玩家基础信息提取
+ */
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const {response} = require("express");
@@ -5,7 +9,16 @@ const {response} = require("express");
 // 提取用户数据的函数
 async function playerInfo(playerTag) {
     try {
-        const currentTime = new Date().toISOString();
+        const options = {
+            year: '2-digit',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZoneName: 'short'
+        };
+        const currentTime = new Date().toLocaleString(undefined, options);
         console.log(`[${currentTime}] Received API request:`, playerTag);
 
         const url = `https://overwatch.blizzard.com/en-us/career/${encodeURIComponent(playerTag)}/`;
