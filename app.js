@@ -4,13 +4,22 @@ console.log(`Starting server...`);
 const appPlayerInfo = require('./getPlayerInfo/playerInfo');
 const appPlayerPCQuickInfo = require('./getPlayerInfo/playerPCQuickInfo');
 const appPlayerPCCompetitiveInfo = require('./getPlayerInfo/playerPCCompetitiveInfo');
+/*
+// 主机数据功能，暂未开发
 const appPlayerConsoleQuickInfo = require('./getPlayerInfo/playerConsoleQuickInfo');
 const appPlayerConsoleCompetitiveInfo = require('./getPlayerInfo/playerConsoleCompetitiveInfo');
+*/
 const config = require('./config/config');
 const app = express();
 const {getCurrentTime} = require('./utils');
 const PORT = config.PORT || 16524;
+const fs = require('fs');
 
+//  处理package.json文件
+const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const version = packageJson.version;
+
+//  apiKey鉴权
 function authenticate(req, res, next) {
     const {apiKey} = req.query;
 
@@ -19,9 +28,9 @@ function authenticate(req, res, next) {
     }
     next();
 }
-
 app.use(authenticate);
 
+//  玩家基础信息
 app.get('/v1/api/playerInfo', async (req, res) => {
     try {
         const {playerTag} = req.query;
@@ -40,6 +49,7 @@ app.get('/v1/api/playerInfo', async (req, res) => {
     }
 });
 
+//  PC平台玩家快速游戏信息
 app.get('/v1/api/playerPCQuickInfo', async (req, res) => {
     try {
         const {playerTag, type} = req.query;
@@ -68,10 +78,14 @@ app.get('/v1/api/playerPCQuickInfo', async (req, res) => {
     }
 });
 
+//  主机平台玩家快速游戏信息（未开发）
+/*
 app.get('/v1/api/playerConsoleQuickInfo', async (req, res) => {
 
 });
+*/
 
+//  PC平台玩家竞技比赛信息
 app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
     try {
         const {playerTag, type} = req.query;
@@ -100,11 +114,12 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
     }
 });
 
-app.get('/v1/api/playerConsoleCompetitiveInfo', async (req, res) => {
+//  主机平台玩家竞技比赛信息（未开发）
+/*app.get('/v1/api/playerConsoleCompetitiveInfo', async (req, res) => {
     res.json({message: '获取玩家竞技比赛信息'});
-});
+});*/
 
 app.listen(PORT, () => {
-    console.log(`${getCurrentTime()} OWER-API Version: ${config.VERSION}`)
+    console.log(`${getCurrentTime()} OWER-API Version: ${version}`)
     console.log(`${getCurrentTime()} OWER-API Service is running on http://localhost:${PORT}`);
 });

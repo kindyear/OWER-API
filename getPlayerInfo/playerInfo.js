@@ -5,7 +5,7 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const {response} = require("express");
-const { getCurrentTime } = require('../utils');
+const {getCurrentTime} = require('../utils');
 
 // 提取用户数据的函数
 async function playerInfo(playerTag) {

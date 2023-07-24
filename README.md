@@ -78,26 +78,28 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 数据解释：
 
 * ``playerBaseInfo``：玩家基础信息
-  * ``playerTag``：玩家的BattleTag（战网ID）
-  * ``playerName``：玩家的昵称
-  * ``playerTitle``：玩家的头衔
-  * ``playerIcon``：玩家的头像
-  * ``endorsementLevel``：玩家的赞赏等级
+    * ``playerTag``：玩家的BattleTag（战网ID）
+    * ``playerName``：玩家的昵称
+    * ``playerTitle``：玩家的头衔
+    * ``playerIcon``：玩家的头像
+    * ``endorsementLevel``：玩家的赞赏等级
 * ``playerCompetitiveInfo``：玩家的竞技比赛信息
-  * ``PC``：玩家的PC端竞技比赛信息
-    * ``Tank``：玩家的坦克信息
-      * ``playerCompetitivePCTank``：玩家的坦克段位
-      * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
-    * ``Damage``：玩家的输出信息
-      * ``playerCompetitivePCDamage``：玩家的输出段位
-      * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
-    * ``Support``：玩家的辅助信息
-      * ``playerCompetitivePCSupport``：玩家的辅助段位
-      * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
+    * ``PC``：玩家的PC端竞技比赛信息
+        * ``Tank``：玩家的坦克信息
+            * ``playerCompetitivePCTank``：玩家的坦克段位
+            * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
+        * ``Damage``：玩家的输出信息
+            * ``playerCompetitivePCDamage``：玩家的输出段位
+            * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
+        * ``Support``：玩家的辅助信息
+            * ``playerCompetitivePCSupport``：玩家的辅助段位
+            * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
 * ``currentTime``：当前时间戳
 
 > 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
+
 ### PC平台端口数据
+
 #### 获取玩家快速游戏排行信息
 
 - URL：`/v1/api/playerPCQuickInfo?{playerTag}&{apiKey}&{type}`
@@ -107,7 +109,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 - 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
   |       `type`类型        |       解释说明        |
-    | :---------------------: | :-------------------: |
+      | :---------------------: | :-------------------: |
   |      `time-played`      |     角色游戏时间      |
   |       `games-won`       |     角色胜利场数      |
   |    `weapon-accuracy`    |    角色武器命中率     |
@@ -273,9 +275,9 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 * ``gameMode``：游戏模式（分为`quickPlay`快速模式和`competitive`竞技模式）
 * ``type``：请求的数据排行类型
 * ``heroRankings``：英雄排行数据
-  * ``heroName``：英雄名称
-  * ``heroData``：英雄数据
-  * ........
+    * ``heroName``：英雄名称
+    * ``heroData``：英雄数据
+    * ........
 * ``currentTime``：当前时间戳
 
 #### 获取玩家竞技游戏排行信息
@@ -287,7 +289,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 - 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
   |       `type`类型        |         解释说明         |
-    | :---------------------: | :----------------------: |
+      | :---------------------: | :----------------------: |
   |      `time-played`      |       角色游戏时间       |
   |       `games-won`       |       角色胜利场数       |
   |    `weapon-accuracy`    |      角色武器命中率      |
@@ -297,15 +299,14 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
   |    `multikill-best`     |     角色最多单次消灭     |
   |    `objective-kills`    |     角色目标点内击杀     |
 
-  注释：``win-percentage``参数为**竞技模式**独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
+  注释：``win-percentage``参数为**竞技模式**
+  独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
 
 ### Console主机平台端口数据
 
 别问，问就是没主机而且没有玩主机的好友而且懒，反正文件和路由还有代码留了主机部分的功能，未来有机会说不定会填坑
 
 也欢迎fork或者提交支持主机的代码
-
-
 
 # TODO
 

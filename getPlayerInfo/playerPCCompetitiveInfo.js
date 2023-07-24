@@ -5,7 +5,7 @@
 
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
-const { getCurrentTime } = require('../utils');
+const {getCurrentTime} = require('../utils');
 
 // 定义type与category-id的映射关系
 const typeToCategoryIdMap = {
@@ -26,14 +26,14 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
         console.log(`${getCurrentTime()} Received API request for competitive hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
         const url = `https://overwatch.blizzard.com/en-us/career/${encodeURIComponent(playerTag)}/`;
 
-        const browser = await puppeteer.launch({ headless: "new" });
+        const browser = await puppeteer.launch({headless: "new"});
         const page = await browser.newPage();
 
         // 设置较长的超时时间（单位：毫秒）
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+        await page.goto(url, {waitUntil: 'domcontentloaded', timeout: 30000});
 
         // 等待目标元素加载完成
-        await page.waitForSelector('.Profile-heroSummary--view.competitive-view .Profile-progressBars', { timeout: 60000 });
+        await page.waitForSelector('.Profile-heroSummary--view.competitive-view .Profile-progressBars', {timeout: 60000});
 
         // 获取页面内容
         const content = await page.content();
@@ -61,7 +61,7 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
             const heroName = $(element).find('.Profile-progressBar-title').text();
             const heroData = $(element).find('.Profile-progressBar-description').text();
 
-            heroRankings.push({ heroName, heroData });
+            heroRankings.push({heroName, heroData});
         });
 
         //console.log(`[${currentTime}] heroRankings:`, heroRankings); // 调试信息
@@ -81,5 +81,5 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
     }
 }
 
-module.exports = { scrapeHeroCompetitivePlayRankings, typeToCategoryIdMap };
+module.exports = {scrapeHeroCompetitivePlayRankings, typeToCategoryIdMap};
 
