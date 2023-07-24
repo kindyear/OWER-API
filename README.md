@@ -106,15 +106,15 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
-  |       `type`类型        |     解释说明      |
-    | :---------------------: | :---------------: |
-  |      `time-played`      |     游戏时间      |
-  |       `games-won`       |     胜利场数      |
-  |    `weapon-accuracy`    |    武器命中率     |
-  | `eliminations-per-life` | 击杀数 / 每条生命 |
-  | `critical-hit-accuracy` |      暴击率       |
-  |    `multikill-best`     |   最多单次消灭    |
-  |    `objective-kills`    |   目标点内击杀    |
+  |       `type`类型        |       解释说明        |
+    | :---------------------: | :-------------------: |
+  |      `time-played`      |     角色游戏时间      |
+  |       `games-won`       |     角色胜利场数      |
+  |    `weapon-accuracy`    |    角色武器命中率     |
+  | `eliminations-per-life` | 角色击杀数 / 每条生命 |
+  | `critical-hit-accuracy` |      角色暴击率       |
+  |    `multikill-best`     |   角色最多单次消灭    |
+  |    `objective-kills`    |   角色目标点内击杀    |
 
   注释：其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，具体可看响应
 
@@ -276,25 +276,44 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
   * ........
 * ``currentTime``：当前时间戳
 
-#### 获取玩家竞技游戏信息（未完成）
+#### 获取玩家竞技游戏排行信息
 
-- URL：`/v1/api/playerCompetitiveInfo/{playerTag}`
+- URL：`/v1/api/playerPCCompetitiveInfo?{playerTag}&{apiKey}&{type}`
+
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
-- 响应
 
-```json
-null
-```
+- 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
-数据解释：
+  |       `type`类型        |         解释说明         |
+    | :---------------------: | :----------------------: |
+  |      `time-played`      |       角色游戏时间       |
+  |       `games-won`       |       角色胜利场数       |
+  |    `weapon-accuracy`    |      角色武器命中率      |
+  |    `win-percentage`     | 角色胜率（竞技模式独有） |
+  | `eliminations-per-life` |  角色击杀数 / 每条生命   |
+  | `critical-hit-accuracy` |        角色暴击率        |
+  |    `multikill-best`     |     角色最多单次消灭     |
+  |    `objective-kills`    |     角色目标点内击杀     |
+
+  注释：``win-percentage``参数为**竞技模式**独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
+
+### Console主机平台端口数据
+
+别问，问就是没主机而且没有玩主机的好友而且懒，反正文件和路由还有代码留了主机部分的功能，未来有机会说不定会填坑
+
+也欢迎fork或者提交支持主机的代码
+
+
 
 # TODO
 
 - [x] 玩家基础游戏信息
-- [x] 玩家快速游戏信息
-- [x] 玩家竞技游戏信息
-- [ ] 玩家各英雄信息
+- [x] PC玩家快速游戏信息
+- [x] PC玩家竞技游戏信息
+- [ ] PC玩家快速游戏各英雄信息
+- [ ] PC玩家竞技游戏各英雄信息
+- [ ] 主机玩家快速游戏信息
+- [ ] 主机玩家快速游戏信息
 
 # 启发 / 感谢
 
