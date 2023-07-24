@@ -122,7 +122,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ```json
 {
-    "playerTag": "KINDYEAR-1336",
+    "playerTag": "KINDYEAR-1336", 
+    "gameMode": "quickPlay",
     "type": "weapon-accuracy",
     "heroRankings": [
         {
@@ -269,6 +270,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 数据解释：
 
 * ``playerTag``：玩家的BattleTag（战网ID）
+* ``gameMode``：游戏模式（分为`quickPlay`快速模式和`competitive`竞技模式）
 * ``type``：请求的数据排行类型
 * ``heroRankings``：英雄排行数据
   * ``heroName``：英雄名称

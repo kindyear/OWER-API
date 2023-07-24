@@ -68,6 +68,7 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
         await browser.close();
         return {
             playerTag,
+            gameMode: 'quickPlay',
             type: selectedType,
             heroRankings,
             currentTime: currentUNIXTime

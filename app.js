@@ -33,6 +33,7 @@ app.get('/v1/api/playerInfo', async (req, res) => {
         const playerData = await appPlayerInfo.playerInfo(playerTag);
 
         res.json(playerData);
+        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
     } catch (error) {
         console.error('Error:', error.message);
         res.status(500).json({error: 'Failed to scrape data.'});

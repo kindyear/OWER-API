@@ -69,6 +69,7 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
         await browser.close();
         return {
             playerTag,
+            gameMode: 'competitive',
             type: selectedType,
             heroRankings,
             currentTime: currentUNIXTime
