@@ -26,7 +26,7 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
         console.log(`${getCurrentTime()} Received API request for quick play hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
-        const browser = await puppeteer.launch({headless: "new"});
+        const browser = await puppeteer.launch({headless: "new", args: ["--no-sandbox"]});
         const page = await browser.newPage();
         // 开启请求拦截
         await page.setRequestInterception(true);
