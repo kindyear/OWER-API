@@ -98,6 +98,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 > 由于暴雪的限制，无法获取到五百强的具体排名，所有五百强的段位显示为GrandMaster-1，也就是宗师1
 >
+> 段位只显示当前赛季段位，无法查看之前赛季的段位
+> 
 > 此外，暴雪似乎并没有提供开放职责的段位信息（游戏里面有但是我弄不出来），所以这里全部显示的是预设职责的段位
 
 > 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
@@ -112,15 +114,15 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
-|       `type`类型        |       解释说明        |
-| :---------------------: | :-------------------: |
-|      `time-played`      |     角色游戏时间      |
-|       `games-won`       |     角色胜利场数      |
-|    `weapon-accuracy`    |    角色武器命中率     |
+|        `type`类型         |     解释说明     |
+|:-----------------------:|:------------:|
+|      `time-played`      |    角色游戏时间    |
+|       `games-won`       |    角色胜利场数    |
+|    `weapon-accuracy`    |   角色武器命中率    |
 | `eliminations-per-life` | 角色击杀数 / 每条生命 |
-| `critical-hit-accuracy` |      角色暴击率       |
-|    `multikill-best`     |   角色最多单次消灭    |
-|    `objective-kills`    |   角色目标点内击杀    |
+| `critical-hit-accuracy` |    角色暴击率     |
+|    `multikill-best`     |   角色最多单次消灭   |
+|    `objective-kills`    |   角色目标点内击杀   |
 
 注释：其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，具体可看响应
 
@@ -172,18 +174,20 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
 
-|       `type`类型        |         解释说明         |
-| :---------------------: | :----------------------: |
-|      `time-played`      |       角色游戏时间       |
-|       `games-won`       |       角色胜利场数       |
-|    `weapon-accuracy`    |      角色武器命中率      |
+|        `type`类型         |     解释说明     |
+|:-----------------------:|:------------:|
+|      `time-played`      |    角色游戏时间    |
+|       `games-won`       |    角色胜利场数    |
+|    `weapon-accuracy`    |   角色武器命中率    |
 |    `win-percentage`     | 角色胜率（竞技模式独有） |
-| `eliminations-per-life` |  角色击杀数 / 每条生命   |
-| `critical-hit-accuracy` |        角色暴击率        |
-|    `multikill-best`     |     角色最多单次消灭     |
-|    `objective-kills`    |     角色目标点内击杀     |
+| `eliminations-per-life` | 角色击杀数 / 每条生命 |
+| `critical-hit-accuracy` |    角色暴击率     |
+|    `multikill-best`     |   角色最多单次消灭   |
+|    `objective-kills`    |   角色目标点内击杀   |
 
 注释：``win-percentage``参数为**竞技模式**独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
+此外，竞技模式的数据只显示当前赛季的数据，无法查看之前赛季的数据。
+
 
 ### Console主机平台端口数据
 

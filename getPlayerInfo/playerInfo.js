@@ -6,23 +6,14 @@ const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const {response} = require("express");
 const {getCurrentTime} = require('../utils');
+const {DATA_SOURCE} = require("../config/config");
 
 // 提取用户数据的函数
 async function playerInfo(playerTag) {
     try {
-        const options = {
-            year: '2-digit',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZoneName: 'short'
-        };
-        const currentTime = new Date().toLocaleString(undefined, options);
         console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
-        const url = `https://overwatch.blizzard.com/en-us/career/${encodeURIComponent(playerTag)}/`;
+        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
         const browser = await puppeteer.launch({headless: "new"});
         const page = await browser.newPage();
@@ -124,7 +115,6 @@ async function playerInfo(playerTag) {
 
         };
     } catch (error) {
-        const currentTime = new Date().toISOString();
         console.error(`${getCurrentTime()} Error:`, error.message);
         throw new Error('Cannot get data.');
     }

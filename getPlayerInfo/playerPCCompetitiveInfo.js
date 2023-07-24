@@ -6,6 +6,7 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const {getCurrentTime} = require('../utils');
+const {DATA_SOURCE} = require("../config/config");
 
 // 定义type与category-id的映射关系
 const typeToCategoryIdMap = {
@@ -24,7 +25,7 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
     try {
         const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received API request for competitive hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
-        const url = `https://overwatch.blizzard.com/en-us/career/${encodeURIComponent(playerTag)}/`;
+        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
         const browser = await puppeteer.launch({headless: "new"});
         const page = await browser.newPage();
