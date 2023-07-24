@@ -4,9 +4,7 @@ OWER API是用于获取Overwatch2（守望先锋2）国际服玩家生涯数据�
 
 数据来源于[Overwatch官方网站](https://overwatch.blizzard.com/en-us/career)
 
-# 部署及使用
-
-## 部署
+# 部署
 
 要求：NodeJS V18.15.0（此版本上正常运行，其他版本未做测试）
 
@@ -28,23 +26,24 @@ node app.js
 
 不建议将端口设置为80或者其它常用端口，防止和已有服务，例如Nginx或者Apache等服务冲突，你可以使用反向代理功能将其代理到80端口或者其它你想设置的端口上
 
-## API文档
+# API文档
 
 API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 其中将xxxx替换为你要请求的路由接口
 
-### 全局参数
+## 全局参数
 
 ``apiKey``：必需，用于认证访问API的访问密钥。可在``项目目录/config/config.js``中修改
 
-### API端点
+`playerTag`：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
 
-#### 获取玩家基础生涯信息
+## API端点
 
-- URL：``/v1/api/PlayerInfo/{playerTag}``
+### 获取玩家基础生涯信息
+
+- URL：``/v1/api/PlayerInfo?{playerTag}&{apiKey}``
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
 - 响应
 
 ```json
@@ -79,38 +78,203 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 数据解释：
 
 * ``playerBaseInfo``：玩家基础信息
-    * ``playerTag``：玩家的BattleTag（战网ID）
-    * ``playerName``：玩家的昵称
-    * ``playerTitle``：玩家的头衔
-    * ``playerIcon``：玩家的头像
-    * ``endorsementLevel``：玩家的赞赏等级
+  * ``playerTag``：玩家的BattleTag（战网ID）
+  * ``playerName``：玩家的昵称
+  * ``playerTitle``：玩家的头衔
+  * ``playerIcon``：玩家的头像
+  * ``endorsementLevel``：玩家的赞赏等级
 * ``playerCompetitiveInfo``：玩家的竞技比赛信息
-    * ``PC``：玩家的PC端竞技比赛信息
-        * ``Tank``：玩家的坦克信息
-            * ``playerCompetitivePCTank``：玩家的坦克段位
-            * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
-        * ``Damage``：玩家的输出信息
-            * ``playerCompetitivePCDamage``：玩家的输出段位
-            * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
-        * ``Support``：玩家的辅助信息
-            * ``playerCompetitivePCSupport``：玩家的辅助段位
-            * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
+  * ``PC``：玩家的PC端竞技比赛信息
+    * ``Tank``：玩家的坦克信息
+      * ``playerCompetitivePCTank``：玩家的坦克段位
+      * ``playerCompetitivePCTankTier``：玩家的坦克段位等级
+    * ``Damage``：玩家的输出信息
+      * ``playerCompetitivePCDamage``：玩家的输出段位
+      * ``playerCompetitivePCDamageTier``：玩家的输出段位等级
+    * ``Support``：玩家的辅助信息
+      * ``playerCompetitivePCSupport``：玩家的辅助段位
+      * ``playerCompetitivePCSupportTier``：玩家的辅助段位等级
 * ``currentTime``：当前时间戳
 
 > 别问为什么没有主机，问就是没有玩主机的朋友和懒得做主机
+### PC平台端口数据
+#### 获取玩家快速游戏排行信息
 
-#### 获取玩家快速游戏信息（未完成）
+- URL：`/v1/api/playerPCQuickInfo?{playerTag}&{apiKey}&{type}`
 
-- URL：`/v1/api/playerQuickInfo/{playerTag}`
 - 方法：``GET``
-- 参数：``{playerTag}``：必需，玩家的BattleTag（战网ID），例如：``KINDYEAR-1336``，将``#``替换为``-``
+
+- 参数：`{type}`：必需，请求的排行榜类型，具体参数以解释如下
+
+  |       `type`类型        |     解释说明      |
+    | :---------------------: | :---------------: |
+  |      `time-played`      |     游戏时间      |
+  |       `games-won`       |     胜利场数      |
+  |    `weapon-accuracy`    |    武器命中率     |
+  | `eliminations-per-life` | 击杀数 / 每条生命 |
+  | `critical-hit-accuracy` |      暴击率       |
+  |    `multikill-best`     |   最多单次消灭    |
+  |    `objective-kills`    |   目标点内击杀    |
+
+  注释：其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，具体可看响应
+
 - 响应
 
 ```json
-null
+{
+    "playerTag": "KINDYEAR-1336",
+    "type": "weapon-accuracy",
+    "heroRankings": [
+        {
+            "heroName": "Sigma",
+            "heroData": "46%"
+        },
+        {
+            "heroName": "Mei",
+            "heroData": "44%"
+        },
+        {
+            "heroName": "Pharah",
+            "heroData": "34%"
+        },
+        {
+            "heroName": "Winston",
+            "heroData": "34%"
+        },
+        {
+            "heroName": "Wrecking Ball",
+            "heroData": "32%"
+        },
+        {
+            "heroName": "Mercy",
+            "heroData": "32%"
+        },
+        {
+            "heroName": "Widowmaker",
+            "heroData": "31%"
+        },
+        {
+            "heroName": "Baptiste",
+            "heroData": "31%"
+        },
+        {
+            "heroName": "Cassidy",
+            "heroData": "30%"
+        },
+        {
+            "heroName": "Zarya",
+            "heroData": "30%"
+        },
+        {
+            "heroName": "Soldier: 76",
+            "heroData": "30%"
+        },
+        {
+            "heroName": "Junker Queen",
+            "heroData": "30%"
+        },
+        {
+            "heroName": "Symmetra",
+            "heroData": "28%"
+        },
+        {
+            "heroName": "Orisa",
+            "heroData": "27%"
+        },
+        {
+            "heroName": "Kiriko",
+            "heroData": "27%"
+        },
+        {
+            "heroName": "Hanzo",
+            "heroData": "27%"
+        },
+        {
+            "heroName": "Zenyatta",
+            "heroData": "26%"
+        },
+        {
+            "heroName": "Bastion",
+            "heroData": "26%"
+        },
+        {
+            "heroName": "Ashe",
+            "heroData": "25%"
+        },
+        {
+            "heroName": "Reaper",
+            "heroData": "24%"
+        },
+        {
+            "heroName": "Lifeweaver",
+            "heroData": "22%"
+        },
+        {
+            "heroName": "Echo",
+            "heroData": "22%"
+        },
+        {
+            "heroName": "D.Va",
+            "heroData": "22%"
+        },
+        {
+            "heroName": "Junkrat",
+            "heroData": "22%"
+        },
+        {
+            "heroName": "Doomfist",
+            "heroData": "22%"
+        },
+        {
+            "heroName": "Lúcio",
+            "heroData": "20%"
+        },
+        {
+            "heroName": "Ramattra",
+            "heroData": "20%"
+        },
+        {
+            "heroName": "Tracer",
+            "heroData": "19%"
+        },
+        {
+            "heroName": "Genji",
+            "heroData": "16%"
+        },
+        {
+            "heroName": "Ana",
+            "heroData": "14%"
+        },
+        {
+            "heroName": "Reinhardt",
+            "heroData": "0"
+        },
+        {
+            "heroName": "Sombra",
+            "heroData": "0"
+        },
+        {
+            "heroName": "Brigitte",
+            "heroData": "0"
+        },
+        {
+            "heroName": "Moira",
+            "heroData": "0"
+        }
+    ],
+    "currentTime": 1690184120150
+}
 ```
 
 数据解释：
+
+* ``playerTag``：玩家的BattleTag（战网ID）
+* ``type``：请求的数据排行类型
+* ``heroRankings``：英雄排行数据
+  * ``heroName``：英雄名称
+  * ``heroData``：英雄数据
+  * ........
+* ``currentTime``：当前时间戳
 
 #### 获取玩家竞技游戏信息（未完成）
 
