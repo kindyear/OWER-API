@@ -47,7 +47,7 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
         if (errorElement) {
-            throw new Error('\u001b[33m'+ playerTag + '\u001b[0m Not Found');
+            throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
         }
         // 等待目标元素加载完成
         await page.waitForSelector('.Profile-heroSummary--view.quickPlay-view.is-active .Profile-progressBars.is-active', {timeout: 60000});

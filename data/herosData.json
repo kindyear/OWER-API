@@ -1,39 +1,187 @@
 [
-    { "herosID": 0, "heroName": "All-Heros", "heroSourceId": "0" },
-    { "herosID": 1, "heroName": "Ana", "heroSourceId": "1" },
-    { "herosID": 2, "heroName": "Ashe", "heroSourceId": "2" },
-    { "herosID": 3, "heroName": "Bastion", "heroSourceId": "3" },
-    { "herosID": 4, "heroName": "Brigitte", "heroSourceId": "4" },
-    { "herosID": 5, "heroName": "Cassidy", "heroSourceId": "5" },
-    { "herosID": 6, "heroName": "D.Va", "heroSourceId": "6" },
-    { "herosID": 7, "heroName": "Doomfist", "heroSourceId": "7" },
-    { "herosID": 8, "heroName": "Echo", "heroSourceId": "8" },
-    { "herosID": 9, "heroName": "Genji", "heroSourceId": "9" },
-    { "herosID": 10, "heroName": "Hanzo", "heroSourceId": "10" },
-    { "herosID": 11, "heroName": "Junker-Queen", "heroSourceId": "11" },
-    { "herosID": 12, "heroName": "Junkrat", "heroSourceId": "12" },
-    { "herosID": 13, "heroName": "Kiriko", "heroSourceId": "13" },
-    { "herosID": 14, "heroName": "Lifeweaver", "heroSourceId": "14" },
-    { "herosID": 15, "heroName": "Lúcio", "heroSourceId": "15" },
-    { "herosID": 16, "heroName": "Mei", "heroSourceId": "16" },
-    { "herosID": 17, "heroName": "Mercy", "heroSourceId": "17" },
-    { "herosID": 18, "heroName": "Moira", "heroSourceId": "18" },
-    { "herosID": 19, "heroName": "Orisa", "heroSourceId": "19" },
-    { "herosID": 20, "heroName": "Pharah", "heroSourceId": "20" },
-    { "herosID": 21, "heroName": "Ramattra", "heroSourceId": "21" },
-    { "herosID": 22, "heroName": "Reaper", "heroSourceId": "22" },
-    { "herosID": 23, "heroName": "Reinhardt", "heroSourceId": "23" },
-    { "herosID": 24, "heroName": "Roadhog", "heroSourceId": "24" },
-    { "herosID": 25, "heroName": "Sigma", "heroSourceId": "25" },
-    { "herosID": 26, "heroName": "Sojourn", "heroSourceId": "26" },
-    { "herosID": 27, "heroName": "Soldier:76", "heroSourceId": "27" },
-    { "herosID": 28, "heroName": "Sombra", "heroSourceId": "28" },
-    { "herosID": 29, "heroName": "Symmetra", "heroSourceId": "29" },
-    { "herosID": 30, "heroName": "Torbjörn", "heroSourceId": "30" },
-    { "herosID": 31, "heroName": "Tracer", "heroSourceId": "31" },
-    { "herosID": 32, "heroName": "Widowmaker", "heroSourceId": "32" },
-    { "herosID": 33, "heroName": "Winston", "heroSourceId": "33" },
-    { "herosID": 34, "heroName": "Wrecking Ball", "heroSourceId": "34" },
-    { "herosID": 35, "heroName": "Zarya", "heroSourceId": "35" },
-    { "herosID": 36, "heroName": "Zenyatta", "heroSourceId": "36" }
+  {
+    "herosID": 0,
+    "heroName": "All-Heros",
+    "heroSourceId": "0"
+  },
+  {
+    "herosID": 1,
+    "heroName": "Ana",
+    "heroSourceId": "1"
+  },
+  {
+    "herosID": 2,
+    "heroName": "Ashe",
+    "heroSourceId": "2"
+  },
+  {
+    "herosID": 3,
+    "heroName": "Bastion",
+    "heroSourceId": "3"
+  },
+  {
+    "herosID": 4,
+    "heroName": "Brigitte",
+    "heroSourceId": "4"
+  },
+  {
+    "herosID": 5,
+    "heroName": "Cassidy",
+    "heroSourceId": "5"
+  },
+  {
+    "herosID": 6,
+    "heroName": "D.Va",
+    "heroSourceId": "6"
+  },
+  {
+    "herosID": 7,
+    "heroName": "Doomfist",
+    "heroSourceId": "7"
+  },
+  {
+    "herosID": 8,
+    "heroName": "Echo",
+    "heroSourceId": "8"
+  },
+  {
+    "herosID": 9,
+    "heroName": "Genji",
+    "heroSourceId": "9"
+  },
+  {
+    "herosID": 10,
+    "heroName": "Hanzo",
+    "heroSourceId": "10"
+  },
+  {
+    "herosID": 11,
+    "heroName": "Junker-Queen",
+    "heroSourceId": "11"
+  },
+  {
+    "herosID": 12,
+    "heroName": "Junkrat",
+    "heroSourceId": "12"
+  },
+  {
+    "herosID": 13,
+    "heroName": "Kiriko",
+    "heroSourceId": "13"
+  },
+  {
+    "herosID": 14,
+    "heroName": "Lifeweaver",
+    "heroSourceId": "14"
+  },
+  {
+    "herosID": 15,
+    "heroName": "Lúcio",
+    "heroSourceId": "15"
+  },
+  {
+    "herosID": 16,
+    "heroName": "Mei",
+    "heroSourceId": "16"
+  },
+  {
+    "herosID": 17,
+    "heroName": "Mercy",
+    "heroSourceId": "17"
+  },
+  {
+    "herosID": 18,
+    "heroName": "Moira",
+    "heroSourceId": "18"
+  },
+  {
+    "herosID": 19,
+    "heroName": "Orisa",
+    "heroSourceId": "19"
+  },
+  {
+    "herosID": 20,
+    "heroName": "Pharah",
+    "heroSourceId": "20"
+  },
+  {
+    "herosID": 21,
+    "heroName": "Ramattra",
+    "heroSourceId": "21"
+  },
+  {
+    "herosID": 22,
+    "heroName": "Reaper",
+    "heroSourceId": "22"
+  },
+  {
+    "herosID": 23,
+    "heroName": "Reinhardt",
+    "heroSourceId": "23"
+  },
+  {
+    "herosID": 24,
+    "heroName": "Roadhog",
+    "heroSourceId": "24"
+  },
+  {
+    "herosID": 25,
+    "heroName": "Sigma",
+    "heroSourceId": "25"
+  },
+  {
+    "herosID": 26,
+    "heroName": "Sojourn",
+    "heroSourceId": "26"
+  },
+  {
+    "herosID": 27,
+    "heroName": "Soldier:76",
+    "heroSourceId": "27"
+  },
+  {
+    "herosID": 28,
+    "heroName": "Sombra",
+    "heroSourceId": "28"
+  },
+  {
+    "herosID": 29,
+    "heroName": "Symmetra",
+    "heroSourceId": "29"
+  },
+  {
+    "herosID": 30,
+    "heroName": "Torbjörn",
+    "heroSourceId": "30"
+  },
+  {
+    "herosID": 31,
+    "heroName": "Tracer",
+    "heroSourceId": "31"
+  },
+  {
+    "herosID": 32,
+    "heroName": "Widowmaker",
+    "heroSourceId": "32"
+  },
+  {
+    "herosID": 33,
+    "heroName": "Winston",
+    "heroSourceId": "33"
+  },
+  {
+    "herosID": 34,
+    "heroName": "Wrecking Ball",
+    "heroSourceId": "34"
+  },
+  {
+    "herosID": 35,
+    "heroName": "Zarya",
+    "heroSourceId": "35"
+  },
+  {
+    "herosID": 36,
+    "heroName": "Zenyatta",
+    "heroSourceId": "36"
+  }
 ]

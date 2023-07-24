@@ -5,8 +5,8 @@
 
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
-const { getCurrentTime } = require('../utils');
-const { DATA_SOURCE } = require("../config/config");
+const {getCurrentTime} = require('../utils');
+const {DATA_SOURCE} = require("../config/config");
 const heroIDData = require('../data/herosData.json');
 
 async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
@@ -38,7 +38,7 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
         });
 
         // 设置较长的超时时间（单位：毫秒）
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+        await page.goto(url, {waitUntil: 'domcontentloaded', timeout: 30000});
 
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
@@ -71,4 +71,4 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
     }
 }
 
-module.exports = { scrapeHeroCompetitiveInfo };
+module.exports = {scrapeHeroCompetitiveInfo};

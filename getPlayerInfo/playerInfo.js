@@ -40,7 +40,7 @@ async function playerInfo(playerTag) {
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
         if (errorElement) {
-            throw new Error('\u001b[33m'+ playerTag + '\u001b[0m Not Found');
+            throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
         }
 
         // 玩家基础信息
