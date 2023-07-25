@@ -1,187 +1,154 @@
 [
   {
-    "herosID": 0,
-    "heroName": "All-Heros",
-    "heroSourceId": "0"
+    "heroID": 0,
+    "heroName": "All Heros"
   },
   {
-    "herosID": 1,
-    "heroName": "Ana",
-    "heroSourceId": "1"
+    "heroID": 1,
+    "heroName": "Ana"
   },
   {
-    "herosID": 2,
-    "heroName": "Ashe",
-    "heroSourceId": "2"
+    "heroID": 2,
+    "heroName": "Ashe"
   },
   {
-    "herosID": 3,
-    "heroName": "Bastion",
-    "heroSourceId": "3"
+    "heroID": 3,
+    "heroName": "Baptiste"
   },
   {
-    "herosID": 4,
-    "heroName": "Brigitte",
-    "heroSourceId": "4"
+    "heroID": 4,
+    "heroName": "Bastion"
   },
   {
-    "herosID": 5,
-    "heroName": "Cassidy",
-    "heroSourceId": "5"
+    "heroID": 5,
+    "heroName": "Brigitte"
   },
   {
-    "herosID": 6,
-    "heroName": "D.Va",
-    "heroSourceId": "6"
+    "heroID": 6,
+    "heroName": "Cassidy"
   },
   {
-    "herosID": 7,
-    "heroName": "Doomfist",
-    "heroSourceId": "7"
+    "heroID": 7,
+    "heroName": "D.Va"
   },
   {
-    "herosID": 8,
-    "heroName": "Echo",
-    "heroSourceId": "8"
+    "heroID": 8,
+    "heroName": "Doomfist"
   },
   {
-    "herosID": 9,
-    "heroName": "Genji",
-    "heroSourceId": "9"
+    "heroID": 9,
+    "heroName": "Echo"
   },
   {
-    "herosID": 10,
-    "heroName": "Hanzo",
-    "heroSourceId": "10"
+    "heroID": 10,
+    "heroName": "Genji"
   },
   {
-    "herosID": 11,
-    "heroName": "Junker-Queen",
-    "heroSourceId": "11"
+    "heroID": 11,
+    "heroName": "Hanzo"
   },
   {
-    "herosID": 12,
-    "heroName": "Junkrat",
-    "heroSourceId": "12"
+    "heroID": 12,
+    "heroName": "Junker Queen"
   },
   {
-    "herosID": 13,
-    "heroName": "Kiriko",
-    "heroSourceId": "13"
+    "heroID": 13,
+    "heroName": "Junkrat"
   },
   {
-    "herosID": 14,
-    "heroName": "Lifeweaver",
-    "heroSourceId": "14"
+    "heroID": 14,
+    "heroName": "Kiriko"
   },
   {
-    "herosID": 15,
-    "heroName": "Lúcio",
-    "heroSourceId": "15"
+    "heroID": 15,
+    "heroName": "Lifeweaver"
   },
   {
-    "herosID": 16,
-    "heroName": "Mei",
-    "heroSourceId": "16"
+    "heroID": 16,
+    "heroName": "Lúcio"
   },
   {
-    "herosID": 17,
-    "heroName": "Mercy",
-    "heroSourceId": "17"
+    "heroID": 17,
+    "heroName": "Mei"
   },
   {
-    "herosID": 18,
-    "heroName": "Moira",
-    "heroSourceId": "18"
+    "heroID": 18,
+    "heroName": "Mercy"
   },
   {
-    "herosID": 19,
-    "heroName": "Orisa",
-    "heroSourceId": "19"
+    "heroID": 19,
+    "heroName": "Moira"
   },
   {
-    "herosID": 20,
-    "heroName": "Pharah",
-    "heroSourceId": "20"
+    "heroID": 20,
+    "heroName": "Orisa"
   },
   {
-    "herosID": 21,
-    "heroName": "Ramattra",
-    "heroSourceId": "21"
+    "heroID": 21,
+    "heroName": "Pharah"
   },
   {
-    "herosID": 22,
-    "heroName": "Reaper",
-    "heroSourceId": "22"
+    "heroID": 22,
+    "heroName": "Ramattra"
   },
   {
-    "herosID": 23,
-    "heroName": "Reinhardt",
-    "heroSourceId": "23"
+    "heroID": 23,
+    "heroName": "Reaper"
   },
   {
-    "herosID": 24,
-    "heroName": "Roadhog",
-    "heroSourceId": "24"
+    "heroID": 24,
+    "heroName": "Reinhardt"
   },
   {
-    "herosID": 25,
-    "heroName": "Sigma",
-    "heroSourceId": "25"
+    "heroID": 25,
+    "heroName": "Roadhog"
   },
   {
-    "herosID": 26,
-    "heroName": "Sojourn",
-    "heroSourceId": "26"
+    "heroID": 26,
+    "heroName": "Sigma"
   },
   {
-    "herosID": 27,
-    "heroName": "Soldier:76",
-    "heroSourceId": "27"
+    "heroID": 27,
+    "heroName": "Sojourn"
   },
   {
-    "herosID": 28,
-    "heroName": "Sombra",
-    "heroSourceId": "28"
+    "heroID": 28,
+    "heroName": "Soldier: 76"
   },
   {
-    "herosID": 29,
-    "heroName": "Symmetra",
-    "heroSourceId": "29"
+    "heroID": 29,
+    "heroName": "Sombra"
   },
   {
-    "herosID": 30,
-    "heroName": "Torbjörn",
-    "heroSourceId": "30"
+    "heroID": 30,
+    "heroName": "Symmetra"
   },
   {
-    "herosID": 31,
-    "heroName": "Tracer",
-    "heroSourceId": "31"
+    "heroID": 31,
+    "heroName": "Torbjörn"
   },
   {
-    "herosID": 32,
-    "heroName": "Widowmaker",
-    "heroSourceId": "32"
+    "heroID": 32,
+    "heroName": "Tracer"
   },
   {
-    "herosID": 33,
-    "heroName": "Winston",
-    "heroSourceId": "33"
+    "heroID": 33,
+    "heroName": "Widowmaker"
   },
   {
-    "herosID": 34,
-    "heroName": "Wrecking Ball",
-    "heroSourceId": "34"
+    "heroID": 34,
+    "heroName": "Winston"
   },
   {
-    "herosID": 35,
-    "heroName": "Zarya",
-    "heroSourceId": "35"
+    "heroID": 35,
+    "heroName": "Wrecking Ball"
   },
   {
-    "herosID": 36,
-    "heroName": "Zenyatta",
-    "heroSourceId": "36"
+    "heroID": 36,
+    "heroName": "Zarya"
+  },
+  {
+    "heroID": 37,
+    "heroName": "Zenyatta"
   }
 ]
