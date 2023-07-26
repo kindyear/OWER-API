@@ -457,7 +457,6 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ### heroID和英雄名称对应表
 
-
 | heroID | 英雄名称（heroName） |  英雄简体中文名称   |
 |:------:|:--------------:|:-----------:|
 |   0    |   ALL HEROS    |    全部英雄     |
