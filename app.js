@@ -24,7 +24,7 @@ const {getCurrentTime} = require('./utils');
 const PORT = config.PORT || 16524;
 const fs = require('fs');
 const {HOST} = require("./config/config");
-const heroIDData = require("./data/herosData.json");
+
 
 // 处理package.json文件
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
@@ -118,6 +118,29 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
 
 // PC平台玩家快速游戏英雄数据
 app.get('/v1/api/playerPCQuickHerosInfo', async (req, res) => {
+    try {
+        const {playerTag, heroID} = req.query;
+
+        // 在这里添加调试输出，确认传入的playerTag和heroID参数的值
+        //console.log('Received request with playerTag:', playerTag, 'and heroID:', heroID, heroName);
+
+        if (!playerTag || !heroID) {
+            return res.status(400).json({error: 'playerTag and heroID are required.'});
+        }
+
+        if (!(heroID in herosData)) {
+            return res.status(400).json({error: 'Invalid heroID. Please provide a valid heroID from the list of available heroes.'});
+        }
+        // 调用playerPCCompetitiveHerosInfo.js中的函数来处理玩家PC平台竞技模式的英雄信息
+        const playerData = await appPlayerPCQuickHerosInfo.scrapeHeroQuickInfo(playerTag, heroID);
+
+        // 返回处理后的数据给客户端
+        res.json(playerData);
+        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s quickPlay hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag和heroID为黄色
+    } catch (error) {
+        console.error(`${getCurrentTime()} Error:`, error.message);
+        res.status(500).json({error: 'Failed to scrape data.'});
+    }
 });
 
 // PC平台玩家竞技比赛英雄数据

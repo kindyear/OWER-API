@@ -130,28 +130,28 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ```json
 {
-    "playerTag": "KINDYEAR-1336", 
-    "gameMode": "quickPlay",
-    "type": "weapon-accuracy",
-    "heroRankings": [
-        {
-            "heroName": "Sigma",
-            "heroData": "46%"
-        },
-        {
-            "heroName": "Mei",
-            "heroData": "44%"
-        },
-        {
-            "heroName": ".......",
-            "heroData": "......."
-        },
-        {
-            "heroName": "Moira",
-            "heroData": "0"
-        }
-    ],
-    "currentTime": 1690184120150
+  "playerTag": "KINDYEAR-1336",
+  "gameMode": "quickPlay",
+  "type": "weapon-accuracy",
+  "heroRankings": [
+    {
+      "heroName": "Sigma",
+      "heroData": "46%"
+    },
+    {
+      "heroName": "Mei",
+      "heroData": "44%"
+    },
+    {
+      "heroName": ".......",
+      "heroData": "......."
+    },
+    {
+      "heroName": "Moira",
+      "heroData": "0"
+    }
+  ],
+  "currentTime": 1690184120150
 }
 ```
 
@@ -189,21 +189,328 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 独有，快速模式不可用其中目标点内击杀为玩家在目标内/附近击杀的玩家总数，包含运载目标或者目标点。此外数据排列格式为由多到少排列，响应和数据解释与快速游戏模式相似，这里不再复述。
 此外，竞技模式的数据只显示当前赛季的数据，无法查看之前赛季的数据。
 
+#### 获取玩家快速游戏英雄数据信息
+
+- URL：`/v1/api/playerPCQuickHerosInfo?{playerTag}&{apiKey}&{heroID}`
+
+- 方法：``GET``
+
+- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID_Info)
+
+- 响应（这里以ALL HEROS为例，不同的英雄对应的数据是不相同的）
+  ```json
+  {
+      "playerTag": "KINDYEAR-1336",
+      "heroID": 0,
+      "heroName": "ALL HEROES",
+      "heroSourceID": "0",
+      "quickHeroData": [
+          {
+              "categoryName": "Best",
+              "categoryData": [
+                  {
+                      "statName": "Eliminations - Most in Game",
+                      "statValue": "42"
+                  },
+                  {
+                      "statName": "Final Blows - Most in Game",
+                      "statValue": "19"
+                  },
+                  {
+                      "statName": "Healing Done - Most in Game",
+                      "statValue": "18075"
+                  },
+                  {
+                      "statName": "Objective Kills - Most in Game",
+                      "statValue": "24"
+                  },
+                  {
+                      "statName": "Objective Time - Most in Game",
+                      "statValue": "06:42"
+                  },
+                  {
+                      "statName": "Multikill - Best",
+                      "statValue": "4"
+                  },
+                  {
+                      "statName": "Solo Kills - Most in Game",
+                      "statValue": "19"
+                  },
+                  {
+                      "statName": "Melee Final Blows - Most in Game",
+                      "statValue": "4"
+                  },
+                  {
+                      "statName": "Kill Streak - Best",
+                      "statValue": "22"
+                  },
+                  {
+                      "statName": "Hero Damage Done - Most in Game",
+                      "statValue": "19236"
+                  },
+                  {
+                      "statName": "Assists - Most in Game",
+                      "statValue": "30"
+                  },
+                  {
+                      "statName": "Objective Contest Time - Most in Game",
+                      "statValue": "05:09"
+                  },
+                  {
+                      "statName": "Recon Assists - Most in Game",
+                      "statValue": "14"
+                  }
+              ]
+          },
+          {
+              "categoryName": "Average",
+              "categoryData": [
+                  {
+                      "statName": "Hero Damage Done - Avg per 10 Min",
+                      "statValue": "4747"
+                  },
+                  {
+                      "statName": "Deaths - Avg per 10 Min",
+                      "statValue": "4.82"
+                  },
+                  {
+                      "statName": "Assists - Avg per 10 min",
+                      "statValue": "11.65"
+                  },
+                  {
+                      "statName": "Eliminations - Avg per 10 Min",
+                      "statValue": "12.37"
+                  },
+                  {
+                      "statName": "Healing Done - Avg per 10 Min",
+                      "statValue": "5783"
+                  },
+                  {
+                      "statName": "Objective Kills - Avg per 10 Min",
+                      "statValue": "5.05"
+                  },
+                  {
+                      "statName": "Objective Time - Avg per 10 Min",
+                      "statValue": "01:23"
+                  },
+                  {
+                      "statName": "Final Blows - Avg per 10 Min",
+                      "statValue": "4.73"
+                  },
+                  {
+                      "statName": "Time Spent on Fire - Avg per 10 Min",
+                      "statValue": "00:32"
+                  },
+                  {
+                      "statName": "Objective Contest Time - Avg per 10 Min",
+                      "statValue": "00:43"
+                  },
+                  {
+                      "statName": "Solo Kills - Avg per 10 Min",
+                      "statValue": "0.61"
+                  }
+              ]
+          },
+          {
+              "categoryName": "Game",
+              "categoryData": [
+                  {
+                      "statName": "Time Played",
+                      "statValue": "51:59:15"
+                  },
+                  {
+                      "statName": "Games Played",
+                      "statValue": "368"
+                  },
+                  {
+                      "statName": "Games Won",
+                      "statValue": "192"
+                  },
+                  {
+                      "statName": "Games Lost",
+                      "statValue": "176"
+                  }
+              ]
+          },
+          {
+              "categoryName": "Combat",
+              "categoryData": [
+                  {
+                      "statName": "Environmental Kills",
+                      "statValue": "12"
+                  },
+                  {
+                      "statName": "Multikills",
+                      "statValue": "24"
+                  },
+                  {
+                      "statName": "Hero Damage Done",
+                      "statValue": "1480665"
+                  },
+                  {
+                      "statName": "Deaths",
+                      "statValue": "1504"
+                  },
+                  {
+                      "statName": "Eliminations",
+                      "statValue": "3858"
+                  },
+                  {
+                      "statName": "Damage Done",
+                      "statValue": "1480665"
+                  },
+                  {
+                      "statName": "Objective Kills",
+                      "statValue": "1575"
+                  },
+                  {
+                      "statName": "Final Blows",
+                      "statValue": "1475"
+                  },
+                  {
+                      "statName": "Objective Time",
+                      "statValue": "07:09:06"
+                  },
+                  {
+                      "statName": "Melee Final Blows",
+                      "statValue": "65"
+                  },
+                  {
+                      "statName": "Time Spent on Fire",
+                      "statValue": "02:44:23"
+                  },
+                  {
+                      "statName": "Objective Contest Time",
+                      "statValue": "03:45:18"
+                  },
+                  {
+                      "statName": "Solo Kills",
+                      "statValue": "189"
+                  }
+              ]
+          },
+          {
+              "categoryName": "Assists",
+              "categoryData": [
+                  {
+                      "statName": "Recon Assists",
+                      "statValue": "81"
+                  },
+                  {
+                      "statName": "Assists",
+                      "statValue": "3633"
+                  },
+                  {
+                      "statName": "Healing Done",
+                      "statValue": "1803937"
+                  },
+                  {
+                      "statName": "Defensive Assists",
+                      "statValue": "2951"
+                  },
+                  {
+                      "statName": "Offensive Assists",
+                      "statValue": "1422"
+                  }
+              ]
+          }
+      ],
+      "currentTime": 1690344710459
+  }
+  ```
+  数据解释：
+
+* ``playerTag``：玩家的BattleTag（战网ID）
+* ``heroID``：英雄ID
+* ``heroName``：英雄名称
+* ``heroSourceID``：英雄源ID（使用者不必关注此数据，该值的解释可以看后面）
+* ``quickHeroData``：英雄数据
+    * ``categoryName``：数据分类名称
+    * ``categoryData``：数据分类数据
+        * ``statName``：数据名称
+        * ``statValue``：数据值
+        * ......
+        * ......
+* ``currentTime``：当前时间戳
+
+#### 获取玩家竞技游戏英雄数据信息
+
+- URL：`/v1/api/playerPCCompetitiveHerosInfo?{playerTag}&{apiKey}&{heroID}`
+
+- 方法：``GET``
+
+- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID_Info)
+
+- 响应于快速模式英雄数据响应相似，数据解释也相似，这里不做赘述
+
 ### Console主机平台端口数据
 
 别问，问就是没主机而且没有玩主机的好友而且懒，反正文件和路由还有代码留了主机部分的功能，未来有机会说不定会填坑
 
 也欢迎fork或者提交支持主机的代码
 
+### 部分数据解释
+
+1. **``heroSourceID``**:由于不同玩家的英雄列表不相同，有可能某个玩家不玩某个英雄，导致`herosData.json`文件中的`heroID`
+   无法一一对应，于是在处理过程中临时内建维护了一个专属于玩家自己的`heroID`对应表，而heroSourceID就是当`heroID`
+   在页面上实际的ID值，而不存在的则为`null`值，这样就可以保证数据的准确性，同时也可以保证数据的完整性，不会因为某个英雄的数据不存在而导致数据不完整。
+
+### heroID和英雄名称对应表
+
+<a id="heroID_Info"></a>
+
+| heroID | 英雄名称（heroName） |
+|:------:|:--------------:|
+|   0    |   ALL HEROS    |
+|   1    |      Ana       |
+|   2    |      Ashe      |
+|   3    |    Baptiste    |
+|   4    |    Bastion     |
+|   5    |    Brigitte    |
+|   6    |    Cassidy     |
+|   7    |      D.Va      |
+|   8    |    Doomfist    |
+|   9    |      Echo      |
+|   10   |     Genji      |
+|   11   |     Hanzo      |
+|   12   |  Junker Queen  |
+|   13   |    Junkrat     |
+|   14   |     Kiriko     |
+|   15   |   Lifeweaver   |
+|   16   |     Lúcio      |
+|   17   |      Mei       |
+|   18   |     Mercy      |
+|   19   |     Moira      |
+|   20   |     Orisa      |
+|   21   |     Pharah     |
+|   22   |    Ramattra    |
+|   23   |     Reaper     |
+|   24   |   Reinhardt    |
+|   25   |    Roadhog     |
+|   26   |     Sigma      |
+|   27   |    Sojourn     |
+|   28   |  Soldier: 76   |
+|   29   |     Sombra     |
+|   30   |    Symmetra    |
+|   31   |    Torbjörn    |
+|   32   |     Tracer     |
+|   33   |   Widowmaker   |
+|   34   |    Winston     |
+|   35   | Wrecking Ball  |
+|   36   |     Zarya      |
+|   37   |    Zenyatta    |
+
 # TODO
 
 - [x] 玩家基础游戏信息
 - [x] PC玩家快速游戏信息
 - [x] PC玩家竞技游戏信息
-- [ ] PC玩家快速游戏各英雄信息
-- [ ] PC玩家竞技游戏各英雄信息
+- [x] PC玩家快速游戏各英雄信息
+- [x] PC玩家竞技游戏各英雄信息
 - [ ] 主机玩家快速游戏信息
 - [ ] 主机玩家快速游戏信息
+- [ ] 主机玩家快速游戏各英雄信息
+- [ ] 主机玩家竞技游戏各英雄信息
 
 # 启发 / 感谢
 
