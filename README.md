@@ -195,7 +195,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - 方法：``GET``
 
-- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID_Info)
+- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID和英雄名称对应表)
 
 - 响应（这里以ALL HEROS为例，不同的英雄对应的数据是不相同的）
   ```json
@@ -439,7 +439,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 - 方法：``GET``
 
-- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID_Info)
+- 参数：`{heroID}`：必需，请求的英雄ID，具体的heroID和英雄名称对应表请查阅：[heroID和英雄名称对应表](#heroID和英雄名称对应表)
 
 - 响应于快速模式英雄数据响应相似，数据解释也相似，这里不做赘述
 
@@ -457,7 +457,6 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ### heroID和英雄名称对应表
 
-<a id="heroID_Info"></a>
 
 | heroID | 英雄名称（heroName） |  英雄简体中文名称   |
 |:------:|:--------------:|:-----------:|
