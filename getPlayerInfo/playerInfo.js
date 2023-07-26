@@ -15,9 +15,8 @@ async function playerInfo(playerTag) {
 
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
-        const browser = await puppeteer.launch({headless: "new", args: ["--no-sandbox"]});
+        browser = await puppeteer.launch({headless: "new", args: ["--no-sandbox"]});
         const page = await browser.newPage();
-
         // 开启请求拦截
         await page.setRequestInterception(true);
 
@@ -30,8 +29,20 @@ async function playerInfo(playerTag) {
                 request.continue();
             }
         });
-        // 访问网页
-        await page.goto(url, {waitUntil: 'domcontentloaded'});
+        try {
+            // 访问网页
+            await page.goto(url, {waitUntil: 'domcontentloaded'});
+        } catch (error) {
+            console.error(`${getCurrentTime()} Error:`, error.message);
+            if (browser) {
+                try {
+                    await browser.close();
+                } catch (closeError) {
+                    console.error('Error while closing the browser:', closeError.message);
+                }
+            }
+            throw new Error('Cannot get data.');
+        }
 
         // 获取页面内容
         const content = await page.content();
@@ -47,7 +58,7 @@ async function playerInfo(playerTag) {
         const playerName = $('h1.Profile-player--name').text();
         const playerTitle = $('h2.Profile-player--title').text();
         const playerIcon = $('.Profile-player--portrait').attr('src');
-        //玩家赞赏，通过提取赞赏图标url的内容来区分赞赏等级
+        // 玩家赞赏，通过提取赞赏图标url的内容来区分赞赏等级
         const endorsementIconSrc = $('.Profile-playerSummary--endorsement').attr('src');
         const endorsementLevel = endorsementIconSrc.match(/endorsement\/(\d+)/)[1];
         const playerCompetitiveInfo = {
@@ -116,7 +127,22 @@ async function playerInfo(playerTag) {
         };
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
+        if (browser) {
+            try {
+                await browser.close();
+            } catch (closeError) {
+                console.error('Error while closing the browser:', closeError.message);
+            }
+        }
         throw new Error('Cannot get data.');
+    } finally {
+        if (browser) {
+            try {
+                await browser.close();
+            } catch (closeError) {
+                console.error('Error while closing the browser:', closeError.message);
+            }
+        }
     }
 }
 

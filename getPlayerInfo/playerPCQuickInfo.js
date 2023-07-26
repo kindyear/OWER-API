@@ -41,8 +41,20 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
             }
         });
 
-        // 设置较长的超时时间（单位：毫秒）
-        await page.goto(url, {waitUntil: 'domcontentloaded', timeout: 30000});
+        try {
+            // 设置较长的超时时间（单位：毫秒）
+            await page.goto(url, {waitUntil: 'domcontentloaded', timeout: 30000});
+        } catch (error) {
+            console.error(`${getCurrentTime()} Error:`, error.message);
+            if (browser) {
+                try {
+                    await browser.close();
+                } catch (closeError) {
+                    console.error('Error while closing the browser:', closeError.message);
+                }
+            }
+            throw new Error('Cannot get data.');
+        }
 
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
@@ -93,7 +105,22 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
         };
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
+        if (browser) {
+            try {
+                await browser.close();
+            } catch (closeError) {
+                console.error('Error while closing the browser:', closeError.message);
+            }
+        }
         throw new Error('Cannot get data.');
+    } finally {
+        if (browser) {
+            try {
+                await browser.close();
+            } catch (closeError) {
+                console.error('Error while closing the browser:', closeError.message);
+            }
+        }
     }
 }
 
