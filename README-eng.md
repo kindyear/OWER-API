@@ -547,8 +547,8 @@ Also welcome to fork or submit code that supports hosts
 
 - https://zusor.io/
 - Linus
-- in flowers
-- Keep a low profile
+- 花散里
+- 低调做人
 
 # Disclaimer
 
