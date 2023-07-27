@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300"
+     viewBox="0 0 800 300">
+  <defs>
+    <clipPath id="clip-SPRK_default_preset_name_custom_1">
+      <rect width="800" height="300"/>
+    </clipPath>
+  </defs>
+  <g id="SPRK_default_preset_name_custom_1" data-name="SPRK_default_preset_name_custom – 1"
+     clip-path="url(#clip-SPRK_default_preset_name_custom_1)">
+    <path id="Path_1" data-name="Path 1" d="M9.576,0H556.154L506.577,185.911H-40Z" transform="translate(141.923 57.045)"
+          fill="#fff"/>
+    <text id="OWER_API" data-name="OWER API" transform="translate(200 200)" fill="#dd6d31" font-size="140"
+          font-family="BigNoodleTooOblique">
+      <tspan x="0" y="0">OWER</tspan>
+      <tspan y="0" fill="#353e47">API</tspan>
+    </text>
+  </g>
+</svg>

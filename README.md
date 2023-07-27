@@ -1,8 +1,16 @@
+<div align="center">
+    <img width="400" src="./docs/logo.svg" alt="logo">
+----
+OWER是一个在全平台下运行，基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服玩家生涯数据获取程序、
+
+这个项目的名字来源于Overwatch Player，于是缩写成了OWER
+</div>
+
+#
+
 # OWER-API
 
-OWER API是用于获取Overwatch2（守望先锋2）国际服玩家生涯数据的一个API程序
-
-数据来源于[Overwatch官方网站](https://overwatch.blizzard.com/en-us/career)
+简体中文 | [English](./README-eng.md)
 
 # 部署
 
