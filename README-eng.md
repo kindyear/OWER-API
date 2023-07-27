@@ -488,46 +488,46 @@ Also welcome to fork or submit code that supports hosts
 
 ### heroID and hero name correspondence table
 
-| heroID | hero name (heroName) | hero name in simplified Chinese |
-|:------:|:--------------------:|:-------------------------------:|
-|   0    |      ALL HEROS       |           All Heroes            |
-|   1    |         Ana          |               Ana               |
-|   2    |         Ashe         |              Ashe               |
-|   3    |       Baptiste       |            Baptiste             |
-|   4    |       Bastion        |             Bastion             |
-|   5    |       Brigitte       |            Brigitte             |
-|   6    |       Cassidy        |    Cassidy (forever McCree)     |
-|   7    |         D.Va         |              D.Va               |
-|   8    |       Doomfist       |            Doomfist             |
-|   9    |         Echo         |              Echo               |
-|   10   |        Genji         |              Genji              |
-|   11   |        Hanzo         |              Hanzo              |
-|   12   |     Junker Queen     |          Junker Queen           |
-|   13   |       Junkrat        |             Junkrat             |
-|   14   |        Kiriko        |              Mist               |
-|   15   |      Lifeweaver      |         Shuttle of Life         |
-|   16   |        Lúcio         |              Lucio              |
-|   17   |         Mei          |
-|   18   |        Mercy         |              Angel              |
-|   19   |        Moira         |              Moira              |
-|   20   |        Orisa         |              Orisa              |
-|   21   |        Pharah        |             Pharah              |
-|   22   |       Ramattra       |
-|   23   |        Reaper        |              Death              |
-|   24   |      Reinhardt       |            Reinhardt            |
-|   25   |       Roadhog        |             Roadhog             |
-|   26   |        Sigma         |              Sigma              |
-|   27   |       Sojourn        |             Sojourn             |
-|   28   |     Soldier: 76      |           Soldier: 76           |
-|   29   |        Sombra        |             Sombra              |
-|   30   |       Symmetra       |            Symmetra             |
-|   31   |       Torbjörn       |            Torbjörn             |
-|   32   |        Tracer        |             Tracer              |
-|   33   |      Widowmaker      |           Widowmaker            |
-|   34   |       Winston        |             Winston             |
-|   35   |    Wrecking Ball     |          Wrecking Ball          |
-|   36   |        Zarya         |              Zarya              |
-|   37   |       Zenyatta       |            Zenyatta             |
+| heroID | 英雄名称（heroName） |  英雄简体中文名称   |
+|:------:|:--------------:|:-----------:|
+|   0    |   ALL HEROS    |    全部英雄     |
+|   1    |      Ana       |     安娜      |
+|   2    |      Ashe      |     艾什      |
+|   3    |    Baptiste    |    巴蒂斯特     |
+|   4    |    Bastion     |     堡垒      |
+|   5    |    Brigitte    |    布里吉塔     |
+|   6    |    Cassidy     | 卡西迪（永远的麦克雷） |
+|   7    |      D.Va      |    D.Va     |
+|   8    |    Doomfist    |    末日铁拳     |
+|   9    |      Echo      |     回声      |
+|   10   |     Genji      |     源氏      |
+|   11   |     Hanzo      |     半藏      |
+|   12   |  Junker Queen  |    渣客女王     |
+|   13   |    Junkrat     |     狂鼠      |
+|   14   |     Kiriko     |     雾子      |
+|   15   |   Lifeweaver   |    生命之梭     |
+|   16   |     Lúcio      |     卢西奥     |
+|   17   |      Mei       |      美      |
+|   18   |     Mercy      |     天使      |
+|   19   |     Moira      |     莫伊拉     |
+|   20   |     Orisa      |     奥丽莎     |
+|   21   |     Pharah     |    法老之鹰     |
+|   22   |    Ramattra    |     拉玛刹     |
+|   23   |     Reaper     |     死神      |
+|   24   |   Reinhardt    |    莱因哈特     |
+|   25   |    Roadhog     |     路霸      |
+|   26   |     Sigma      |     西格玛     |
+|   27   |    Sojourn     |     索杰恩     |
+|   28   |  Soldier: 76   |    士兵：76    |
+|   29   |     Sombra     |     黑影      |
+|   30   |    Symmetra    |    秩序之光     |
+|   31   |    Torbjörn    |     托比昂     |
+|   32   |     Tracer     |     猎空      |
+|   33   |   Widowmaker   |     黑百合     |
+|   34   |    Winston     |     温斯顿     |
+|   35   | Wrecking Ball  |     破坏球     |
+|   36   |     Zarya      |     查莉娅     |
+|   37   |    Zenyatta    |     禅雅塔     |
 
 # TODO
 
