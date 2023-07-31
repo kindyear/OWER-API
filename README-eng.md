@@ -8,7 +8,21 @@ OWER is a player career data acquisition program based on NodeJS and Puppeteer f
 
 The name of this project comes from Overwatch Player, so it was abbreviated as OWER
 
-[![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
+<img src="https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/forks/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/issues/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/license/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/languages/code-size/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/repo-size/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/last-commit/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/languages/top/kindyear/OWER-API.svg?style=flat-square">
 
 </div>
 

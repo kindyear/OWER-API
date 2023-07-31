@@ -8,7 +8,21 @@ OWER是一个在全平台下运行，基于NodeJS和Puppeteer的守望先锋2（
 
 这个项目的名字来源于Overwatch Player，于是缩写成了OWER
 
-[![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
+<img src="https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/forks/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/issues/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/license/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/languages/code-size/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/repo-size/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/last-commit/kindyear/OWER-API.svg?style=flat-square">
+
+<img src="https://img.shields.io/github/languages/top/kindyear/OWER-API.svg?style=flat-square">
 
 </div>
 
