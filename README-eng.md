@@ -10,7 +10,7 @@ The name of this project comes from Overwatch Player, so it was abbreviated as O
 
 #OWER-API
 
-Simplified Chinese | [English](./README-eng.md)
+[简体中文](./README.md) | English
 
 # deployment
 
