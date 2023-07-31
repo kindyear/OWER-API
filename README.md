@@ -1,14 +1,14 @@
 <div align="center">
 
-    <img width="400" src="./docs/logo.svg" alt="logo"></img>
+<img width="400" src="./docs/logo.svg" alt="logo"></img>
 
-    ----
+----
 
-    OWER是一个在全平台下运行，基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服玩家生涯数据获取程序、
+OWER是一个在全平台下运行，基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服玩家生涯数据获取程序、
 
-    这个项目的名字来源于Overwatch Player，于是缩写成了OWER
+这个项目的名字来源于Overwatch Player，于是缩写成了OWER
 
-    [![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
+[![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
 
 </div>
 

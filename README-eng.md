@@ -1,6 +1,6 @@
 <div align="center">
 
-     <img width="400" src="./docs/logo.svg" alt="logo">
+<img width="400" src="./docs/logo.svg" alt="logo">
 
 ----
 
@@ -8,7 +8,7 @@ OWER is a player career data acquisition program based on NodeJS and Puppeteer f
 
 The name of this project comes from Overwatch Player, so it was abbreviated as OWER
 
-    [![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
+[![GitHub stars](https://img.shields.io/github/stars/kindyear/OWER-API.svg?style=flat-square)](
 
 </div>
 
