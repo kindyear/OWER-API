@@ -221,225 +221,225 @@ season cannot be viewed.
 - Response (take ALL HEROS as an example here, different heroes have different corresponding data)
 
 ```json
-
-"playerTag": "KINDYEAR-1336",
-"heroID": 0,
-"heroName": "ALL HEROES",
-"heroSourceID": "0",
-"quickHeroData": [
-{
-"categoryName": "Best",
-"categoryData": [
-{
-"statName": "Eliminations - Most in Game",
-"statValue": "42"
-},
-{
-"statName": "Final Blows - Most in Game",
-"statValue": "19"
-},
-{
-"statName": "Healing Done - Most in Game",
-"statValue": "18075"
-},
-{
-"statName": "Objective Kills - Most in Game",
-"statValue": "24"
-},
-{
-"statName": "Objective Time - Most in Game",
-"statValue": "06:42"
-},
-{
-"statName": "Multikill - Best",
-"statValue": "4"
-},
-{
-"statName": "Solo Kills - Most in Game",
-"statValue": "19"
-},
-{
-"statName": "Melee Final Blows - Most in Game",
-"statValue": "4"
-},
-{
-"statName": "Kill Streak - Best",
-"statValue": "22"
-},
-{
-"statName": "Hero Damage Done - Most in Game",
-"statValue": "19236"
-},
-{
-"statName": "Assists - Most in Game",
-"statValue": "30"
-},
-{
-"statName": "Objective Contest Time - Most in Game",
-"statValue": "05:09"
-},
-{
-"statName": "Recon Assists - Most in Game",
-"statValue": "14"
+  {
+  "playerTag": "KINDYEAR-1336",
+  "heroID": 0,
+  "heroName": "ALL HEROES",
+  "heroSourceID": "0",
+  "quickHeroData": [
+    {
+      "categoryName": "Best",
+      "categoryData": [
+        {
+          "statName": "Eliminations - Most in Game",
+          "statValue": "42"
+        },
+        {
+          "statName": "Final Blows - Most in Game",
+          "statValue": "19"
+        },
+        {
+          "statName": "Healing Done - Most in Game",
+          "statValue": "18075"
+        },
+        {
+          "statName": "Objective Kills - Most in Game",
+          "statValue": "24"
+        },
+        {
+          "statName": "Objective Time - Most in Game",
+          "statValue": "06:42"
+        },
+        {
+          "statName": "Multikill - Best",
+          "statValue": "4"
+        },
+        {
+          "statName": "Solo Kills - Most in Game",
+          "statValue": "19"
+        },
+        {
+          "statName": "Melee Final Blows - Most in Game",
+          "statValue": "4"
+        },
+        {
+          "statName": "Kill Streak - Best",
+          "statValue": "22"
+        },
+        {
+          "statName": "Hero Damage Done - Most in Game",
+          "statValue": "19236"
+        },
+        {
+          "statName": "Assists - Most in Game",
+          "statValue": "30"
+        },
+        {
+          "statName": "Objective Contest Time - Most in Game",
+          "statValue": "05:09"
+        },
+        {
+          "statName": "Recon Assists - Most in Game",
+          "statValue": "14"
+        }
+      ]
+    },
+    {
+      "categoryName": "Average",
+      "categoryData": [
+        {
+          "statName": "Hero Damage Done - Avg per 10 Min",
+          "statValue": "4747"
+        },
+        {
+          "statName": "Deaths - Avg per 10 Min",
+          "statValue": "4.82"
+        },
+        {
+          "statName": "Assists - Avg per 10 min",
+          "statValue": "11.65"
+        },
+        {
+          "statName": "Eliminations - Avg per 10 Min",
+          "statValue": "12.37"
+        },
+        {
+          "statName": "Healing Done - Avg per 10 Min",
+          "statValue": "5783"
+        },
+        {
+          "statName": "Objective Kills - Avg per 10 Min",
+          "statValue": "5.05"
+        },
+        {
+          "statName": "Objective Time - Avg per 10 Min",
+          "statValue": "01:23"
+        },
+        {
+          "statName": "Final Blows - Avg per 10 Min",
+          "statValue": "4.73"
+        },
+        {
+          "statName": "Time Spent on Fire - Avg per 10 Min",
+          "statValue": "00:32"
+        },
+        {
+          "statName": "Objective Contest Time - Avg per 10 Min",
+          "statValue": "00:43"
+        },
+        {
+          "statName": "Solo Kills - Avg per 10 Min",
+          "statValue": "0.61"
+        }
+      ]
+    },
+    {
+      "categoryName": "Game",
+      "categoryData": [
+        {
+          "statName": "Time Played",
+          "statValue": "51:59:15"
+        },
+        {
+          "statName": "Games Played",
+          "statValue": "368"
+        },
+        {
+          "statName": "Games Won",
+          "statValue": "192"
+        },
+        {
+          "statName": "Games Lost",
+          "statValue": "176"
+        }
+      ]
+    },
+    {
+      "categoryName": "Combat",
+      "categoryData": [
+        {
+          "statName": "Environmental Kills",
+          "statValue": "12"
+        },
+        {
+          "statName": "Multikills",
+          "statValue": "24"
+        },
+        {
+          "statName": "Hero Damage Done",
+          "statValue": "1480665"
+        },
+        {
+          "statName": "Deaths",
+          "statValue": "1504"
+        },
+        {
+          "statName": "Eliminations",
+          "statValue": "3858"
+        },
+        {
+          "statName": "Damage Done",
+          "statValue": "1480665"
+        },
+        {
+          "statName": "Objective Kills",
+          "statValue": "1575"
+        },
+        {
+          "statName": "Final Blows",
+          "statValue": "1475"
+        },
+        {
+          "statName": "Objective Time",
+          "statValue": "07:09:06"
+        },
+        {
+          "statName": "Melee Final Blows",
+          "statValue": "65"
+        },
+        {
+          "statName": "Time Spent on Fire",
+          "statValue": "02:44:23"
+        },
+        {
+          "statName": "Objective Contest Time",
+          "statValue": "03:45:18"
+        },
+        {
+          "statName": "Solo Kills",
+          "statValue": "189"
+        }
+      ]
+    },
+    {
+      "categoryName": "Assists",
+      "categoryData": [
+        {
+          "statName": "Recon Assists",
+          "statValue": "81"
+        },
+        {
+          "statName": "Assists",
+          "statValue": "3633"
+        },
+        {
+          "statName": "Healing Done",
+          "statValue": "1803937"
+        },
+        {
+          "statName": "Defensive Assists",
+          "statValue": "2951"
+        },
+        {
+          "statName": "Offensive Assists",
+          "statValue": "1422"
+        }
+      ]
+    }
+  ],
+  "currentTime": 1690344710459
 }
-]
-},
-{
-"categoryName": "Average",
-"categoryData": [
-{
-"statName": "Hero Damage Done - Avg per 10 Min",
-"statValue": "4747"
-},
-{
-"statName": "Deaths - Avg per 10 Min",
-"statValue": "4.82"
-},
-{
-"statName": "Assists - Avg per 10 min",
-"statValue": "11.65"
-},
-{
-"statName": "Eliminations - Avg per 10 Min",
-"statValue": "12.37"
-},
-{
-"statName": "Healing Done - Avg per 10 Min",
-"statValue": "5783"
-},
-{
-"statName": "Objective Kills - Avg per 10 Min",
-"statValue": "5.05"
-},
-{
-"statName": "Objective Time - Avg per 10 Min",
-"statValue": "01:23"
-},
-{
-"statName": "Final Blows - Avg per 10 Min",
-"statValue": "4.73"
-},
-{
-"statName": "Time Spent on Fire - Avg per 10 Min",
-"statValue": "00:32"
-},
-{
-"statName": "Objective Contest Time - Avg per 10 Min",
-"statValue": "00:43"
-},
-{
-"statName": "Solo Kills - Avg per 10 Min",
-"statValue": "0.61"
-}
-]
-},
-{
-"categoryName": "Game",
-"categoryData": [
-{
-"statName": "Time Played",
-"statValue": "51:59:15"
-},
-{
-"statName": "Games Played",
-"statValue": "368"
-},
-{
-"statName": "Games Won",
-"statValue": "192"
-},
-{
-"statName": "Games Lost",
-"statValue": "176"
-}
-]
-},
-{
-"categoryName": "Combat",
-"categoryData": [
-{
-"statName": "Environmental Kills",
-"statValue": "12"
-},
-{
-"statName": "Multikills",
-"statValue": "24"
-},
-{
-"statName": "Hero Damage Done",
-"statValue": "1480665"
-},
-{
-"statName": "Deaths",
-"statValue": "1504"
-},
-{
-"statName": "Eliminations",
-"statValue": "3858"
-},
-{
-"statName": "Damage Done",
-"statValue": "1480665"
-},
-{
-"statName": "Objective Kills",
-"statValue": "1575"
-},
-{
-"statName": "Final Blows",
-"statValue": "1475"
-},
-{
-"statName": "Objective Time",
-"statValue": "07:09:06"
-},
-{
-"statName": "Melee Final Blows",
-"statValue": "65"
-},
-{
-"statName": "Time Spent on Fire",
-"statValue": "02:44:23"
-},
-{
-"statName": "Objective Contest Time",
-"statValue": "03:45:18"
-},
-{
-"statName": "Solo Kills",
-"statValue": "189"
-}
-]
-},
-{
-"categoryName": "Assists",
-"categoryData": [
-{
-"statName": "Recon Assists",
-"statValue": "81"
-},
-{
-"statName": "Assists",
-"statValue": "3633"
-},
-{
-"statName": "Healing Done",
-"statValue": "1803937"
-},
-{
-"statName": "Defensive Assists",
-"statValue": "2951"
-},
-{
-"statName": "Offensive Assists",
-"statValue": "1422"
-}
-]
-}
-],
-"currentTime": 1690344710459
-}
-```
+  ```
 
 Data Interpretation:
 
