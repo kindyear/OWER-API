@@ -61,7 +61,6 @@ async function playerInfo(playerTag) {
             }
         }
 
-        console.log("N")
         // 检查私密信息元素
         const privateElement = await page.$('.Profile-private---msg');
         const isPrivate = !!privateElement;
