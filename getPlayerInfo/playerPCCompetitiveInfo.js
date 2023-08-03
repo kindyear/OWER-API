@@ -61,8 +61,13 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
 
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
-        if (errorElement) {
-            throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
+        const isError = !!errorElement;
+        if (isError) {
+            await browser.close();
+            console.log('${getCurrentTime()} \u001b[33m' + playerTag + '\u001b[0m Not Found');
+            return {
+                error: "Player not found."
+            }
         }
 
         // 检查私密信息元素

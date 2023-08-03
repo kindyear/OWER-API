@@ -52,10 +52,16 @@ async function playerInfo(playerTag) {
 
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
-        if (errorElement) {
-            throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
+        const isError = !!errorElement;
+        if (isError) {
+            await browser.close();
+            console.log('${getCurrentTime()} \u001b[33m' + playerTag + '\u001b[0m Not Found');
+            return {
+                error: "Player not found."
+            }
         }
 
+        console.log("N")
         // 检查私密信息元素
         const privateElement = await page.$('.Profile-private---msg');
         const isPrivate = !!privateElement;
