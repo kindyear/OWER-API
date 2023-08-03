@@ -79,6 +79,7 @@ in ``project directory/config/config.js``
 
 ```json
 {
+  "private": false,
   "playerBaseInfo": {
     "playerTag": "KINDYEAR-1336",
     "playerName": "KINDYEAR",
@@ -108,6 +109,8 @@ in ``project directory/config/config.js``
 
 Data Interpretation:
 
+* ``private``: Whether the player's career information is private, if it is private, it will return ``true``, otherwise
+  it will return ``false
 * ``playerBaseInfo``: player base information
     * ``playerTag``: Player's BattleTag (Battle.net ID)
     * ``playerName``: The nickname of the player
@@ -165,6 +168,7 @@ the response for details
 
 ```json
 {
+  "private": false,
   "playerTag": "KINDYEAR-1336",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
@@ -192,6 +196,8 @@ the response for details
 
 Data Interpretation:
 
+* ``private``: Whether the player's career information is private, if it is private, it will return ``true``, otherwise
+  it will return ``false
 * ``playerTag``: Player's BattleTag (Battle.net ID)
 * ``gameMode``: game mode (divided into `quickPlay` fast mode and `competitive` competitive mode)
 * ``type``: the requested data ranking type
@@ -241,6 +247,7 @@ season cannot be viewed.
 
 ```json
   {
+  "private": false,
   "playerTag": "KINDYEAR-1336",
   "heroID": 0,
   "heroName": "ALL HEROES",
@@ -462,6 +469,8 @@ season cannot be viewed.
 
 Data Interpretation:
 
+* ``private``: Whether the player's career information is private, if it is private, it will return ``true``, otherwise
+  it will return ``false
 * ``playerTag``: Player's BattleTag (Battle.net ID)
 * ``heroID``: hero ID
 * ``heroName``: hero name

@@ -76,6 +76,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ```json
 {
+  "private": false,
   "playerBaseInfo": {
     "playerTag": "KINDYEAR-1336",
     "playerName": "KINDYEAR",
@@ -105,6 +106,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 数据解释：
 
+* ``private``：玩家是否设置了隐私，如果设置了隐私，将会返回``true``，否则返回``false``
 * ``playerBaseInfo``：玩家基础信息
     * ``playerTag``：玩家的BattleTag（战网ID）
     * ``playerName``：玩家的昵称
@@ -158,6 +160,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 ```json
 {
+  "private": false,
   "playerTag": "KINDYEAR-1336",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
@@ -185,6 +188,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 数据解释：
 
+* ``private``：玩家是否设置了隐私，如果设置了隐私，将会返回``true``，否则返回``false``
 * ``playerTag``：玩家的BattleTag（战网ID）
 * ``gameMode``：游戏模式（分为`quickPlay`快速模式和`competitive`竞技模式）
 * ``type``：请求的数据排行类型
@@ -228,6 +232,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 - 响应（这里以ALL HEROS为例，不同的英雄对应的数据是不相同的）
   ```json
   {
+      "private": false,
       "playerTag": "KINDYEAR-1336",
       "heroID": 0,
       "heroName": "ALL HEROES",
@@ -448,6 +453,7 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
   ```
   数据解释：
 
+* ``private``：玩家是否设置了隐私，如果设置了隐私，将会返回``true``，否则返回``false``
 * ``playerTag``：玩家的BattleTag（战网ID）
 * ``heroID``：英雄ID
 * ``heroName``：英雄名称
