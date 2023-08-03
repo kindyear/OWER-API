@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="400" src="./docs/logo.svg" alt="logo">
+<img width="400" src="./docs/logo.png" alt="logo">
 
 ----
 
@@ -26,9 +26,7 @@ The name of this project comes from Overwatch Player, so it was abbreviated as O
 
 </div>
 
-#
-
-#OWER-API
+# OWER-API
 
 [简体中文](./README.md) | English
 
