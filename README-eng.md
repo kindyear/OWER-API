@@ -4,7 +4,8 @@
 
 ----
 
-OWER is a player career data acquisition program based on NodeJS and Puppeteer for Overwatch 2 (Overwatch2) international servers running on all platforms.
+OWER is a player career data acquisition program based on NodeJS and Puppeteer for Overwatch 2 (Overwatch2)
+international servers running on all platforms.
 
 The name of this project comes from Overwatch Player, so it was abbreviated as OWER
 

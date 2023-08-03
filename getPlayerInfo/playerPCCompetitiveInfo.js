@@ -22,6 +22,7 @@ const typeToCategoryIdMap = {
 
 // 提取PC平台快速游戏排行榜数据的函数
 async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
+    let browser;
     try {
         const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received API request for competitive hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);

@@ -21,6 +21,7 @@ const typeToCategoryIdMap = {
 
 // 提取PC平台快速游戏排行榜数据的函数
 async function scrapeHeroQuickPlayRankings(playerTag, type) {
+    let browser;
     try {
         const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received API request for quick play hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
@@ -125,4 +126,3 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
 }
 
 module.exports = {scrapeHeroQuickPlayRankings, typeToCategoryIdMap};
-

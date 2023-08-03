@@ -10,6 +10,7 @@ const {DATA_SOURCE} = require("../config/config");
 
 // 提取用户数据的函数
 async function playerInfo(playerTag) {
+    let browser;
     try {
         console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
