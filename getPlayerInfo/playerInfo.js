@@ -55,7 +55,7 @@ async function playerInfo(playerTag) {
         const isError = !!errorElement;
         if (isError) {
             await browser.close();
-            console.log('${getCurrentTime()} \u001b[33m' + playerTag + '\u001b[0m Not Found');
+            console.log(`${getCurrentTime()} \u001b[33m` + playerTag + `\u001b[0m Not Found`);
             return {
                 error: "Player not found."
             }
