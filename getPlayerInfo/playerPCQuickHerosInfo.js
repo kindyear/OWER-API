@@ -50,6 +50,22 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
             throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
         }
 
+        // 检查私密信息元素
+        const privateElement = await page.$('.Profile-private---msg');
+        const isPrivate = !!privateElement;
+
+        if (isPrivate) {
+            await browser.close();
+            return {
+                private: isPrivate,
+                playerTag,
+                heroID: heroID,
+                heroName: heroName,
+                quickHeroData: [],
+                currentTime: currentUNIXTime
+            };
+        }
+
         // 获取页面元素中的所有英雄信息
         const heroElements = await page.$$eval('body > div.main-content > div.mouseKeyboard-view.Profile-view.is-active > blz-section.stats.quickPlay-view > div.Profile-heroSummary--header > select[data-dropdown-id="hero-dropdown"] option', options => {
             return options.map(option => ({
@@ -57,15 +73,6 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
                 heroSourceID: option.value // 使用 value 作为英雄的源ID
             }));
         });
-
-        //  console.log(`${getCurrentTime()} Hero Elements:`, heroElements);
-
-        /*const secondAllHeroesIndex = heroElements.findIndex((hero, index) => index !== 0 && hero.heroName === 'ALL HEROES');
-
-        // 分离第二部分的英雄元素
-        const heroElementsVariable = secondAllHeroesIndex !== -1 ? heroElements.slice(secondAllHeroesIndex) : [];
-
-        //  console.log(`${getCurrentTime()} Hero Elements Variable:`, heroElementsVariable);*/
 
         // 复制 JSON 模板，并根据页面元素中的数据进行匹配和处理
         const processedHeroesData = heroesData.map(heroData => {
@@ -116,6 +123,7 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
         //console.log(`${getCurrentTime()} Quick Hero Data:`, parsedHeroData);
         await browser.close();
         return {
+            private: isPrivate,
             playerTag,
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,

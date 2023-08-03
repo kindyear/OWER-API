@@ -49,11 +49,16 @@ async function playerInfo(playerTag) {
         const content = await page.content();
         const $ = cheerio.load(content);
 
+
         // 玩家标签是否存在
         const errorElement = await page.$('.error-contain');
         if (errorElement) {
             throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
         }
+
+        // 检查私密信息元素
+        const privateElement = await page.$('.Profile-private---msg');
+        const isPrivate = !!privateElement;
 
         // 玩家基础信息
         const playerName = $('h1.Profile-player--name').text();
@@ -112,6 +117,7 @@ async function playerInfo(playerTag) {
         await browser.close();
         // 构造JSON格式输出
         return {
+            private: isPrivate,
             //用户基础生涯信息
             playerBaseInfo: {
                 playerTag: playerTag,

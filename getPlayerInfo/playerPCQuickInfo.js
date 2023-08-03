@@ -62,6 +62,23 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
         if (errorElement) {
             throw new Error('\u001b[33m' + playerTag + '\u001b[0m Not Found');
         }
+
+        // 检查私密信息元素
+        const privateElement = await page.$('.Profile-private---msg');
+        const isPrivate = !!privateElement;
+
+        if (isPrivate) {
+            await browser.close();
+            return {
+                private: true,
+                playerTag,
+                gameMode: 'quickPlay',
+                type: type ? type.toLowerCase() : null,
+                heroRankings: [],
+                currentTime: currentUNIXTime
+            };
+        }
+        console.log("Start wait.")
         // 等待目标元素加载完成
         await page.waitForSelector('.Profile-heroSummary--view.quickPlay-view.is-active .Profile-progressBars.is-active', {timeout: 60000});
 
@@ -98,6 +115,7 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
 
         await browser.close();
         return {
+            private: isPrivate,
             playerTag,
             gameMode: 'quickPlay',
             type: selectedType,
