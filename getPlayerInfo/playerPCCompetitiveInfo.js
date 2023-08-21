@@ -70,15 +70,23 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
             }
         }
 
+        // 获取页面内容
+        const content = await page.content();
+        const $ = cheerio.load(content);
+
         // 检查私密信息元素
         const privateElement = await page.$('.Profile-private---msg');
         const isPrivate = !!privateElement;
+        const playerName = $('h1.Profile-player--name').text();
+        const playerIcon = $('.Profile-player--portrait').attr('src');
 
         if (isPrivate) {
             await browser.close();
             return {
                 private: true,
                 playerTag,
+                playerName: playerName,
+                playerIcon: playerIcon,
                 gameMode: 'quickPlay',
                 type: type ? type.toLowerCase() : null,
                 heroRankings: [],
@@ -88,10 +96,6 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
 
         // 等待目标元素加载完成
         await page.waitForSelector('.Profile-heroSummary--view.competitive-view .Profile-progressBars', {timeout: 60000});
-
-        // 获取页面内容
-        const content = await page.content();
-        const $ = cheerio.load(content);
 
         // 将type参数转换为小写
         const selectedType = type ? type.toLowerCase() : null;
@@ -124,6 +128,8 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
         return {
             private: isPrivate,
             playerTag,
+            playerName: playerName,
+            playerIcon: playerIcon,
             gameMode: 'competitive',
             type: selectedType,
             heroRankings,

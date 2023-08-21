@@ -59,6 +59,14 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
         const privateElement = await page.$('.Profile-private---msg');
         const isPrivate = !!privateElement;
 
+        // 填充用户信息
+        const playerNameElement = await page.$('h1.Profile-player--name');
+        const playerName = await playerNameElement.evaluate(element => element.textContent);
+
+        const playerIconElement = await page.$('.Profile-player--portrait');
+        const playerIcon = await playerIconElement.evaluate(element => element.getAttribute('src'));
+
+
         if (isPrivate) {
             await browser.close();
             return {
@@ -110,6 +118,8 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
 
         // 提取指定位置的元素信息
         const quickHeroData = await page.$eval(heroSelector, (element) => element.innerHTML);
+        // 获取页面内容
+        const content = await page.content();
 
         // 使用Cheerio解析元素信息
         const $ = cheerio.load(quickHeroData);
@@ -130,6 +140,8 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
         return {
             private: isPrivate,
             playerTag,
+            playerName: playerName,
+            playerIcon: playerIcon,
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,
             heroSourceID: selectedHero.heroSourceID,

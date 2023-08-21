@@ -59,11 +59,20 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
         const privateElement = await page.$('.Profile-private---msg');
         const isPrivate = !!privateElement;
 
+        // 填充用户信息
+        const playerNameElement = await page.$('h1.Profile-player--name');
+        const playerName = await playerNameElement.evaluate(element => element.textContent);
+
+        const playerIconElement = await page.$('.Profile-player--portrait');
+        const playerIcon = await playerIconElement.evaluate(element => element.getAttribute('src'));
+
         if (isPrivate) {
             await browser.close();
             return {
                 private: isPrivate,
                 playerTag,
+                playerName: playerName,
+                playerIcon: playerIcon,
                 heroID: heroID,
                 heroName: heroName,
                 competitiveHeroData: [],
@@ -130,6 +139,8 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
         return {
             private: isPrivate,
             playerTag,
+            playerName: playerName,
+            playerIcon: playerIcon,
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,
             heroSourceID: selectedHero.heroSourceID,

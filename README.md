@@ -56,9 +56,9 @@ node app.js
 
 # API文档
 
-API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
+API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 
-其中将xxxx替换为你要请求的路由接口
+其中将ROUTER替换为你要请求的路由接口
 
 ## 全局参数
 
@@ -162,6 +162,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 {
   "private": false,
   "playerTag": "KINDYEAR-1336",
+  "playerName": "KINDYEAR",
+  "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
   "heroRankings": [
@@ -190,6 +192,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 * ``private``：玩家是否设置了隐私，如果设置了隐私，将会返回``true``，否则返回``false``
 * ``playerTag``：玩家的BattleTag（战网ID）
+* ``playerName``：玩家的昵称
+* ``playerIcon``：玩家的头像
 * ``gameMode``：游戏模式（分为`quickPlay`快速模式和`competitive`竞技模式）
 * ``type``：请求的数据排行类型
 * ``heroRankings``：英雄排行数据
@@ -234,6 +238,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
   {
       "private": false,
       "playerTag": "KINDYEAR-1336",
+      "playerName": "KINDYEAR",
+      "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
       "heroID": 0,
       "heroName": "ALL HEROES",
       "heroSourceID": "0",
@@ -455,6 +461,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/xxxx``
 
 * ``private``：玩家是否设置了隐私，如果设置了隐私，将会返回``true``，否则返回``false``
 * ``playerTag``：玩家的BattleTag（战网ID）
+* ``playerName``：玩家的昵称
+* ``playerIcon``：玩家的头像
 * ``heroID``：英雄ID
 * ``heroName``：英雄名称
 * ``heroSourceID``：英雄源ID（使用者不必关注此数据，该值的解释可以看后面）
