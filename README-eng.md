@@ -58,9 +58,9 @@ such as Nginx or Apache. You can use the reverse proxy function to proxy it to p
 
 # API documentation
 
-The API path is: ``http(s)://yourdomain.com:port/v1/api/xxxx``
+The API path is: ``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 
-Replace xxxx with the routing interface you want to request
+Replace ROUTER with the routing interface you want to request
 
 ## Global parameters
 
@@ -170,6 +170,8 @@ the response for details
 {
   "private": false,
   "playerTag": "KINDYEAR-1336",
+  "playerName": "KINDYEAR",
+  "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
   "heroRankings": [
@@ -199,6 +201,8 @@ Data Interpretation:
 * ``private``: Whether the player's career information is private, if it is private, it will return ``true``, otherwise
   it will return ``false``
 * ``playerTag``: Player's BattleTag (Battle.net ID)
+* ``playerName``: The nickname of the player
+* ``playerIcon``: The player's avatar
 * ``gameMode``: game mode (divided into `quickPlay` fast mode and `competitive` competitive mode)
 * ``type``: the requested data ranking type
 * ``heroRankings``: hero ranking data
@@ -249,6 +253,8 @@ season cannot be viewed.
   {
   "private": false,
   "playerTag": "KINDYEAR-1336",
+  "playerName": "KINDYEAR",
+  "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
   "heroID": 0,
   "heroName": "ALL HEROES",
   "heroSourceID": "0",
@@ -472,6 +478,8 @@ Data Interpretation:
 * ``private``: Whether the player's career information is private, if it is private, it will return ``true``, otherwise
   it will return ``false``
 * ``playerTag``: Player's BattleTag (Battle.net ID)
+* ``playerName``: The nickname of the player
+* ``playerIcon``: The player's avatar
 * ``heroID``: hero ID
 * ``heroName``: hero name
 * ``heroSourceID``: hero source ID (users do not need to pay attention to this data, the explanation of this value can
