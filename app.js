@@ -6,13 +6,13 @@ console.log(`Starting server...`);
 const herosData = require('./data/herosData.json');
 
 // 玩家基础信息
-const appPlayerInfo = require('./getPlayerInfo/playerInfo');
+const appPlayerInfo = require('./functions/playerInfo');
 // 玩家快速/竞技游戏英雄排行榜数据
-const appPlayerPCQuickInfo = require('./getPlayerInfo/playerPCQuickInfo');
-const appPlayerPCCompetitiveInfo = require('./getPlayerInfo/playerPCCompetitiveInfo');
+const appPlayerPCQuickInfo = require('./functions/playerPCQuickInfo');
+const appPlayerPCCompetitiveInfo = require('./functions/playerPCCompetitiveInfo');
 // 玩家快速/竞技游戏英雄数据
-const appPlayerPCQuickHerosInfo = require('./getPlayerInfo/playerPCQuickHerosInfo');
-const appPlayerPCCompetitiveHerosInfo = require('./getPlayerInfo/playerPCCompetitiveHerosInfo');
+const appPlayerPCQuickHerosInfo = require('./functions/playerPCQuickHerosInfo');
+const appPlayerPCCompetitiveHerosInfo = require('./functions/playerPCCompetitiveHerosInfo');
 /*
 // 主机数据功能，暂未开发
 const appPlayerConsoleQuickInfo = require('./getPlayerInfo/playerConsoleQuickInfo');
@@ -20,7 +20,7 @@ const appPlayerConsoleCompetitiveInfo = require('./getPlayerInfo/playerConsoleCo
 */
 const config = require('./config/config');
 const app = express();
-const {getCurrentTime} = require('./utils');
+const {getCurrentTime} = require('./functions/others/utils');
 const PORT = config.PORT || 16524;
 const fs = require('fs');
 const {HOST} = require("./config/config");

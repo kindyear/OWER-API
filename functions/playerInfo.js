@@ -5,13 +5,17 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const {response} = require("express");
-const {getCurrentTime} = require('../utils');
+const {getCurrentTime} = require('./others/utils');
 const {DATA_SOURCE} = require("../config/config");
+const nameSearch = require("../functions/others/nameSearch");
 
 // 提取用户数据的函数
 async function playerInfo(playerTag) {
     let browser;
     try {
+
+        playerTag = await nameSearch(playerTag);
+
         console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;

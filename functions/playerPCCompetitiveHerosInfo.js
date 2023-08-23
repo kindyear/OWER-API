@@ -1,14 +1,18 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
-const {getCurrentTime} = require('../utils');
+const {getCurrentTime} = require('./others/utils');
 const {DATA_SOURCE} = require('../config/config');
-const heroesData = require('../data/herosData.json'); // 更新为您的JSON模板数据路径
-async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
+const heroesData = require('../data/herosData.json');
+const nameSearch = require("./others/nameSearch"); // 更新为您的JSON模板数据路径
+
+async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
     let browser;
     try {
+        playerTag = await nameSearch(playerTag);
+
         const heroName = heroesData.find(hero => hero.heroID.toString() === heroID).heroName;
         const currentUNIXTime = new Date().getTime();
-        console.log(`${getCurrentTime()} Received Quickplay Hero Info request with playerTag: \u001b[33m${playerTag}\u001b[0m, heroID: \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m.`);
+        console.log(`${getCurrentTime()} Received Competitive Hero Info request with playerTag: \u001b[33m${playerTag}\u001b[0m, heroID: \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m.`);
 
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
@@ -65,21 +69,22 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
         const playerIconElement = await page.$('.Profile-player--portrait');
         const playerIcon = await playerIconElement.evaluate(element => element.getAttribute('src'));
 
-
         if (isPrivate) {
             await browser.close();
             return {
                 private: isPrivate,
                 playerTag,
+                playerName: playerName,
+                playerIcon: playerIcon,
                 heroID: heroID,
                 heroName: heroName,
-                quickHeroData: [],
+                competitiveHeroData: [],
                 currentTime: currentUNIXTime
             };
         }
 
         // 获取页面元素中的所有英雄信息
-        const heroElements = await page.$$eval('body > div.main-content > div.mouseKeyboard-view.Profile-view.is-active > blz-section.stats.quickPlay-view > div.Profile-heroSummary--header > select[data-dropdown-id="hero-dropdown"] option', options => {
+        const heroElements = await page.$$eval('body > div.main-content > div.mouseKeyboard-view.Profile-view.is-active > blz-section.stats.competitive-view > div.Profile-heroSummary--header > select[data-dropdown-id="hero-dropdown"] option', options => {
             return options.map(option => ({
                 heroName: option.getAttribute('option-id'), // 使用 option-id 作为英雄名字
                 heroSourceID: option.value // 使用 value 作为英雄的源ID
@@ -117,15 +122,13 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
         }
 
         // 构建动态的选择器
-        const heroSelector = `blz-section.stats.quickPlay-view span.stats-container.option-${selectedHero.heroSourceID}`;
+        const heroSelector = `blz-section.stats.competitive-view span.stats-container.option-${selectedHero.heroSourceID}`;
 
         // 提取指定位置的元素信息
-        const quickHeroData = await page.$eval(heroSelector, (element) => element.innerHTML);
-        // 获取页面内容
-        const content = await page.content();
+        const competitiveHeroData = await page.$eval(heroSelector, (element) => element.innerHTML);
 
         // 使用Cheerio解析元素信息
-        const $ = cheerio.load(quickHeroData);
+        const $ = cheerio.load(competitiveHeroData);
         const parsedHeroData = [];
         $('.category').each((index, category) => {
             const categoryName = $(category).find('.header p').text().trim();
@@ -138,7 +141,7 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
             parsedHeroData.push({categoryName, categoryData});
         });
 
-        //console.log(`${getCurrentTime()} Quick Hero Data:`, parsedHeroData);
+        //console.log(`${getCurrentTime()} Competitive Hero Data:`, parsedHeroData);
         await browser.close();
         return {
             private: isPrivate,
@@ -148,7 +151,7 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,
             heroSourceID: selectedHero.heroSourceID,
-            quickHeroData: parsedHeroData,
+            competitiveHeroData: parsedHeroData,
             currentTime: currentUNIXTime
         };
     } catch (error) {
@@ -178,4 +181,4 @@ function getHeroSourceID(heroName, heroElements) {
     return heroElement ? heroElement.heroSourceID : null;
 }
 
-module.exports = {scrapeHeroQuickInfo};
+module.exports = {scrapeHeroCompetitiveInfo};
