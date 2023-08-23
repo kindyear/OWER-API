@@ -564,6 +564,8 @@ Also welcome to fork or submit code that supports hosts
 |   35   | Wrecking Ball  |     破坏球     |
 |   36   |     Zarya      |     查莉娅     |
 |   37   |    Zenyatta    |     禅雅塔     |
+|   38   |     Illari     |     伊拉锐     |
+
 
 # TODO
 

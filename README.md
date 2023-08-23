@@ -539,6 +539,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 |   35   | Wrecking Ball  |     破坏球     |
 |   36   |     Zarya      |     查莉娅     |
 |   37   |    Zenyatta    |     禅雅塔     |
+|   38   |     Illari     |     伊拉锐     |
+
 
 # TODO
 
