@@ -3,8 +3,7 @@ const cheerio = require('cheerio');
 const {getCurrentTime} = require('../utils');
 const {DATA_SOURCE} = require('../config/config');
 const heroesData = require('../data/herosData.json'); // 更新为您的JSON模板数据路径
-
-async function scrapeHeroQuickInfo(playerTag, heroID) {
+async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
     let browser;
     try {
         const heroName = heroesData.find(hero => hero.heroID.toString() === heroID).heroName;
@@ -108,9 +107,13 @@ async function scrapeHeroQuickInfo(playerTag, heroID) {
         }
 
         if (selectedHero.heroSourceID === null) {
-            //console.error(`Hero with ID ${heroID} does not exist.`);
+            //  console.error(`Hero with ID ${heroID} does not exist.`);
             await browser.close();
-            throw new Error(`Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            //  throw new Error(`Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            console.log(`${getCurrentTime()} Error: Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            return {
+                error: `The requested hero cannot be found in the player's information.`
+            };
         }
 
         // 构建动态的选择器

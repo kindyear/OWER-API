@@ -109,9 +109,13 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
         }
 
         if (selectedHero.heroSourceID === null) {
-            //console.error(`Hero with ID ${heroID} does not exist.`);
+            //  console.error(`Hero with ID ${heroID} does not exist.`);
             await browser.close();
-            throw new Error(`Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            //  throw new Error(`Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            console.log(`${getCurrentTime()} Error: Hero with heroID \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m does not exist.`);
+            return {
+                error: `The requested hero cannot be found in the player's information.`
+            };
         }
 
         // 构建动态的选择器

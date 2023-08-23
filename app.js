@@ -131,6 +131,7 @@ app.get('/v1/api/playerPCQuickHerosInfo', async (req, res) => {
         if (!(heroID in herosData)) {
             return res.status(400).json({error: 'Invalid heroID. Please provide a valid heroID from the list of available heroes.'});
         }
+
         // 调用playerPCCompetitiveHerosInfo.js中的函数来处理玩家PC平台竞技模式的英雄信息
         const playerData = await appPlayerPCQuickHerosInfo.scrapeHeroQuickInfo(playerTag, heroID);
 
