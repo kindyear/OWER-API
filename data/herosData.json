@@ -150,5 +150,9 @@
   {
     "heroID": 37,
     "heroName": "Zenyatta"
+  },
+  {
+    "heroID": 38,
+    "heroName": "Illari"
   }
 ]
