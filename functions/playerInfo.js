@@ -73,6 +73,7 @@ async function playerInfo(playerTag) {
         const playerTitle = $('h2.Profile-player--title').text();
         const playerName = $('h1.Profile-player--name').text();
         const playerIcon = $('.Profile-player--portrait').attr('src');
+
         // 玩家赞赏，通过提取赞赏图标url的内容来区分赞赏等级
         const endorsementIconSrc = $('.Profile-playerSummary--endorsement').attr('src');
         const endorsementLevel = endorsementIconSrc.match(/endorsement\/(\d+)/)[1];
