@@ -8,7 +8,7 @@ module.exports = function nameSearch(playerTag) {
     const config = require("../../config/config");
     const rawPlayerTag = playerTag.replace("-", "#");
     //  console.log(rawPlayerTag);
-    const searchApiURL = `${config.NAME_SEARCH}/${rawPlayerTag}`;
+    const searchApiURL = `${config.NAME_SEARCH}/${encodeURIComponent(rawPlayerTag)}`;
 
     return axios.get(searchApiURL)
         .then(response => {

@@ -14,7 +14,7 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
         const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received Competitive Hero Info request with playerTag: \u001b[33m${playerTag}\u001b[0m, heroID: \u001b[33m${heroID}\u001b[0m, heroName: \u001b[33m${heroName}\u001b[0m.`);
 
-        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
+        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}`;
 
         const browser = await puppeteer.launch({headless: "new", args: ['--no-sandbox']});
         const page = await browser.newPage();

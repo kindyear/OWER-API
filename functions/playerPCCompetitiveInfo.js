@@ -29,7 +29,7 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
 
         const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received API request for competitive hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
-        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
+        const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}`;
 
         const browser = await puppeteer.launch({headless: "new", args: ["--no-sandbox"]});
         const page = await browser.newPage();
