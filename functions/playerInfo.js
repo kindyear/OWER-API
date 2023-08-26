@@ -13,10 +13,17 @@ const nameSearch = require("../functions/others/nameSearch");
 async function playerInfo(playerTag) {
     let browser;
     try {
+        console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
         playerTag = await nameSearch(playerTag);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        if (playerTag === "Player Not Found.") {
+            return "Player Not Found.";
+        }
+        if (playerTag === "Player Not Legal.") {
+            return "Player Not Legal.";
+        }
 
-        console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 

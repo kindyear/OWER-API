@@ -24,10 +24,14 @@ const typeToCategoryIdMap = {
 async function scrapeHeroQuickPlayRankings(playerTag, type) {
     let browser;
     try {
-        playerTag = await nameSearch(playerTag);
-
-        const currentUNIXTime = new Date().getTime();
         console.log(`${getCurrentTime()} Received API request for quick play hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
+
+        playerTag = await nameSearch(playerTag);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        if (playerTag === "Player Not Found.") {
+            return "Player Not Found.";
+        }
+        const currentUNIXTime = new Date().getTime();
         const url = `${DATA_SOURCE}${encodeURIComponent(playerTag)}/`;
 
         const browser = await puppeteer.launch({headless: "new", args: ["--no-sandbox"]});

@@ -8,6 +8,10 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
     let browser;
     try {
         playerTag = await nameSearch(playerTag);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        if (playerTag === "Player Not Found.") {
+            return "Player Not Found.";
+        }
 
         const heroName = heroesData.find(hero => hero.heroID.toString() === heroID).heroName;
         const currentUNIXTime = new Date().getTime();

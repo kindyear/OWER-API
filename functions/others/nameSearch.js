@@ -1,19 +1,13 @@
-/*
-    nameSearch.js
-    搜索玩家BattleTag并返回第一个数据
-*/
-
 module.exports = function nameSearch(playerTag) {
     const axios = require('axios');
     const config = require("../../config/config");
+    console.log(playerTag)
     const rawPlayerTag = playerTag.replace("-", "#");
-    //  console.log(rawPlayerTag);
     const searchApiURL = `${config.NAME_SEARCH}/${encodeURIComponent(rawPlayerTag)}`;
 
     return axios.get(searchApiURL)
         .then(response => {
             const apiData = response.data;
-            //  console.log(apiData);
             if (Array.isArray(apiData) && apiData.length > 0) {
                 const exactMatch = apiData.find(info => info.battleTag === rawPlayerTag);
                 if (exactMatch) {
@@ -26,14 +20,11 @@ module.exports = function nameSearch(playerTag) {
                         const fuzzyMatchBattleTag = fuzzyMatch.battleTag.replace("#", "-");
                         return fuzzyMatchBattleTag;
                     } else {
-                        throw new Error("No data found.");
+                        return "Player Not Found.";
                     }
                 }
             } else {
-                throw new Error("No data found.");
+                return "Player Not Found.";
             }
-        })
-        .catch(error => {
-            throw error;
         });
 };

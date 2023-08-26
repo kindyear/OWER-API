@@ -46,16 +46,20 @@ app.use(authenticate);
 app.get('/v1/api/playerInfo', async (req, res) => {
     try {
         const {playerTag} = req.query;
-
         if (!playerTag) {
             return res.status(400).json({error: 'playerTag is required.'});
         }
-
         const playerData = await appPlayerInfo.playerInfo(playerTag);
+        if (playerData === "Player Not Found.") {
+            res.status(404).json({error: 'Player not found.'});
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped failed.`);
+        } else {
+            res.json(playerData);
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
+        }
 
-        res.json(playerData);
-        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
     } catch (error) {
+        console.log(error);
         console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
     }
@@ -82,8 +86,13 @@ app.get('/v1/api/playerPCQuickInfo', async (req, res) => {
 
         const playerData = await appPlayerPCQuickInfo.scrapeHeroQuickPlayRankings(playerTag, selectedType);
 
-        res.json(playerData);
-        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag为黄色
+        if (playerData === "Player Not Found.") {
+            res.status(404).json({error: 'Player not found.'});
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped failed.`);
+        } else {
+            res.json(playerData);
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
+        }
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
@@ -108,8 +117,13 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
 
         const playerData = await appPlayerPCCompetitiveInfo.scrapeHeroCompetitivePlayRankings(playerTag, selectedType);
 
-        res.json(playerData);
-        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag为黄色
+        if (playerData === "Player Not Found.") {
+            res.status(404).json({error: 'Player not found.'});
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped failed.`);
+        } else {
+            res.json(playerData);
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped successfully.`);
+        }
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
@@ -136,8 +150,13 @@ app.get('/v1/api/playerPCQuickHerosInfo', async (req, res) => {
         const playerData = await appPlayerPCQuickHerosInfo.scrapeHeroQuickInfo(playerTag, heroID);
 
         // 返回处理后的数据给客户端
-        res.json(playerData);
-        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s quickPlay hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag和heroID为黄色
+        if (playerData === "Player Not Found.") {
+            res.status(404).json({error: 'Player not found.'});
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s quickPlay hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped failed.`);
+        } else {
+            res.json(playerData);
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s quickPlay hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped successfully.`);
+        }
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
@@ -163,8 +182,13 @@ app.get('/v1/api/playerPCCompetitiveHerosInfo', async (req, res) => {
         const playerData = await appPlayerPCCompetitiveHerosInfo.scrapeHeroCompetitiveInfo(playerTag, heroID);
 
         // 返回处理后的数据给客户端
-        res.json(playerData);
-        console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s competitive hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped successfully.`); // 使用ANSI转义序列来设置playerTag和heroID为黄色
+        if (playerData === "Player Not Found.") {
+            res.status(404).json({error: 'Player not found.'});
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s competitive hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped failed.`);
+        } else {
+            res.json(playerData);
+            console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s competitive hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped successfully.`);
+        }
     } catch (error) {
         console.error(`${getCurrentTime()} Error:`, error.message);
         res.status(500).json({error: 'Failed to scrape data.'});
