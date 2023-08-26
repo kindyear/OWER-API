@@ -35,7 +35,7 @@ function authenticate(req, res, next) {
     const {apiKey} = req.query;
 
     if (!apiKey || apiKey !== config.API_KEY) {
-        return res.status(401).json({error: 'Unauthorized. Please provide a valid API key.'});
+        return res.status(400).json({error: 'Unauthorized. Please provide a valid API key.'});
     }
     next();
 }
@@ -87,7 +87,7 @@ app.get('/v1/api/playerPCQuickInfo', async (req, res) => {
         const playerData = await appPlayerPCQuickInfo.scrapeHeroQuickPlayRankings(playerTag, selectedType);
 
         if (playerData === "Player Not Found.") {
-            res.status(404).json({error: 'Player not found.'});
+            res.status(400).json({error: 'Player not found.'});
             console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped failed.`);
         } else {
             res.json(playerData);
@@ -118,7 +118,7 @@ app.get('/v1/api/playerPCCompetitiveInfo', async (req, res) => {
         const playerData = await appPlayerPCCompetitiveInfo.scrapeHeroCompetitivePlayRankings(playerTag, selectedType);
 
         if (playerData === "Player Not Found.") {
-            res.status(404).json({error: 'Player not found.'});
+            res.status(400).json({error: 'Player not found.'});
             console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s data has been scraped failed.`);
         } else {
             res.json(playerData);
@@ -151,7 +151,7 @@ app.get('/v1/api/playerPCQuickHerosInfo', async (req, res) => {
 
         // 返回处理后的数据给客户端
         if (playerData === "Player Not Found.") {
-            res.status(404).json({error: 'Player not found.'});
+            res.status(400).json({error: 'Player not found.'});
             console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s quickPlay hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped failed.`);
         } else {
             res.json(playerData);
@@ -183,7 +183,7 @@ app.get('/v1/api/playerPCCompetitiveHerosInfo', async (req, res) => {
 
         // 返回处理后的数据给客户端
         if (playerData === "Player Not Found.") {
-            res.status(404).json({error: 'Player not found.'});
+            res.status(400).json({error: 'Player not found.'});
             console.log(`${getCurrentTime()} \u001b[33m${playerTag}\u001b[0m‘s competitive hero data for heroID \u001b[33m${heroID}\u001b[0m has been scraped failed.`);
         } else {
             res.json(playerData);
