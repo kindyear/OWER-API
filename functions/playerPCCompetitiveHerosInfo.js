@@ -78,7 +78,7 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
             await browser.close();
             return {
                 private: isPrivate,
-                playerTag,
+                playerTag: playerTag,
                 playerName: playerName,
                 playerIcon: playerIcon,
                 heroID: heroID,

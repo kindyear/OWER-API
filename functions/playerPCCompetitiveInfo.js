@@ -92,7 +92,7 @@ async function scrapeHeroCompetitivePlayRankings(playerTag, type) {
             await browser.close();
             return {
                 private: true,
-                playerTag,
+                playerTag: playerTag,
                 playerName: playerName,
                 playerIcon: playerIcon,
                 gameMode: 'quickPlay',

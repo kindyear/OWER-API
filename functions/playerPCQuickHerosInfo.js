@@ -77,7 +77,8 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
             await browser.close();
             return {
                 private: isPrivate,
-                playerTag,
+                playerTag: playerTag,
+                playerName: playerName,
                 heroID: heroID,
                 heroName: heroName,
                 quickHeroData: [],
