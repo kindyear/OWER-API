@@ -24,7 +24,6 @@ OWER是一个基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服�
 
 </div>
 
-#
 
 # OWER-API
 

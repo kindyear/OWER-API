@@ -158,5 +158,9 @@
   {
     "heroID": 39,
     "heroName": "Mauga"
+  },
+  {
+    "heroID": 40,
+    "heroName": "NULL"
   }
 ]

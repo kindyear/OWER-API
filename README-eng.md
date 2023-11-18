@@ -51,7 +51,7 @@ Install dependencies (using Ubuntu as an example)
 sudo apt install libatk1.0-0 libatk-bridge2.0-0 libxkbcommon0 libxdamage1 libgbm1 libpango-1.0-0 libcairo2
 ```
 
-then run the project
+Then run the project
 
 ```bash
 node app.js
