@@ -154,5 +154,9 @@
   {
     "heroID": 38,
     "heroName": "Illari"
+  },
+  {
+    "heroID": 39,
+    "heroName": "Mauga"
   }
 ]

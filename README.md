@@ -4,7 +4,7 @@
 
 ----
 
-OWER是一个在全平台下运行，基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服玩家生涯数据获取程序、
+OWER是一个基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服玩家生涯数据获取程序、
 
 这个项目的名字来源于Overwatch Player，于是缩写成了OWER
 
@@ -540,10 +540,13 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 |   36   |     Zarya      |     查莉娅     |
 |   37   |    Zenyatta    |     禅雅塔     |
 |   38   |     Illari     |     伊拉锐     |
+|   39   |     Mauga      |     毛加      |
 
 
 # TODO
 
+- [ ] 实现缓存功能
+- [ ] 使用view-source方法提升检索效率和提升性能
 - [x] 玩家基础游戏信息
 - [x] PC玩家快速游戏信息
 - [x] PC玩家竞技游戏信息
