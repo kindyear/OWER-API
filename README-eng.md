@@ -565,10 +565,13 @@ Also welcome to fork or submit code that supports hosts
 |   36   |     Zarya      |     查莉娅     |
 |   37   |    Zenyatta    |     禅雅塔     |
 |   38   |     Illari     |     伊拉锐     |
+|   39   |     Mauga      |     毛加      |
 
 
 # TODO
 
+- [ ] Use cache
+- [ ] use view-source method improve data acquisition speed
 - [x] Player base game information
 - [x] Quick game info for PC players
 - [x] Competitive game information for PC players
