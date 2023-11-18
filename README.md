@@ -14,8 +14,6 @@ OWER是一个基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服�
 
 <img src="https://img.shields.io/github/issues/kindyear/OWER-API.svg?style=flat-square">
 
-<img src="https://img.shields.io/github/license/kindyear/OWER-API.svg?style=flat-square">
-
 <img src="https://img.shields.io/github/languages/code-size/kindyear/OWER-API.svg?style=flat-square">
 
 <img src="https://img.shields.io/github/repo-size/kindyear/OWER-API.svg?style=flat-square">
@@ -46,6 +44,11 @@ OWER是一个基于NodeJS和Puppeteer的守望先锋2（Overwatch2）国际服�
 git clone https://github.com/kindyear/OWER-API.git
 ```
 
+安装依赖(以Ubuntu为例)
+
+```bash
+sudo apt install libatk1.0-0 libatk-bridge2.0-0 libxkbcommon0 libxdamage1 libgbm1 libpango-1.0-0 libcairo2
+```
 然后运行项目
 
 ```bash

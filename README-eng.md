@@ -15,8 +15,6 @@ The name of this project comes from Overwatch Player, so it was abbreviated as O
 
 <img src="https://img.shields.io/github/issues/kindyear/OWER-API.svg?style=flat-square">
 
-<img src="https://img.shields.io/github/license/kindyear/OWER-API.svg?style=flat-square">
-
 <img src="https://img.shields.io/github/languages/code-size/kindyear/OWER-API.svg?style=flat-square">
 
 <img src="https://img.shields.io/github/repo-size/kindyear/OWER-API.svg?style=flat-square">
@@ -45,6 +43,12 @@ deployed:
 
 ```bash
 git clone https://github.com/kindyear/OWER-API.git
+```
+
+Install dependencies (using Ubuntu as an example)
+
+```bash
+sudo apt install libatk1.0-0 libatk-bridge2.0-0 libxkbcommon0 libxdamage1 libgbm1 libpango-1.0-0 libcairo2
 ```
 
 then run the project
