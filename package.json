@@ -1,6 +1,6 @@
 {
   "name": "ower-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An Overwatch Game Data API",
   "main": "app.js",
   "scripts": {
