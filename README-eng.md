@@ -89,6 +89,8 @@ in ``project directory/config/config.js``
     "playerName": "KINDYEAR",
     "playerTitle": "Extraterrestrial",
     "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5c670baeda5a7b2ed707c940f6b17773e9fd41fe783a8810ea9283cd55d6fd43.png",
+    "playerIconID": "0x0860000000000021",
+    "playerNameCardID": "0x0860000000000021",
     "endorsementLevel": 2
   },
   "playerCompetitiveInfo": {
@@ -120,6 +122,8 @@ Data Interpretation:
     * ``playerName``: The nickname of the player
     * ``playerTitle``: The title of the player
     * ``playerIcon``: The player's avatar
+  * ``playerIconID``: The player's avatar ID
+  * ``playerNameCardID``: The player's namecard ID
     * ``endorsementLevel``: The player's endorsement level
 * ``playerCompetitiveInfo``: The player's competitive information
     * ``PC``: Player's PC competitive game information
@@ -176,6 +180,8 @@ the response for details
   "playerTag": "KINDYEAR-1336",
   "playerName": "KINDYEAR",
   "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
+  "playerIconID": "0x0860000000000021",
+  "playerNameCardID": "0x0860000000000021",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
   "heroRankings": [
@@ -207,6 +213,8 @@ Data Interpretation:
 * ``playerTag``: Player's BattleTag (Battle.net ID)
 * ``playerName``: The nickname of the player
 * ``playerIcon``: The player's avatar
+* ``playerIconID``: The player's avatar ID
+* ``playerNameCardID``: The player's namecard ID
 * ``gameMode``: game mode (divided into `quickPlay` fast mode and `competitive` competitive mode)
 * ``type``: the requested data ranking type
 * ``heroRankings``: hero ranking data
@@ -259,6 +267,8 @@ season cannot be viewed.
   "playerTag": "KINDYEAR-1336",
   "playerName": "KINDYEAR",
   "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
+  "playerIconID": "0x0860000000000021",
+  "playerNameCardID": "0x0860000000000021",
   "heroID": 0,
   "heroName": "ALL HEROES",
   "heroSourceID": "0",
@@ -484,6 +494,8 @@ Data Interpretation:
 * ``playerTag``: Player's BattleTag (Battle.net ID)
 * ``playerName``: The nickname of the player
 * ``playerIcon``: The player's avatar
+* ``playerIconID``: The player's avatar ID
+* ``playerNameCardID``: The player's namecard ID
 * ``heroID``: hero ID
 * ``heroName``: hero name
 * ``heroSourceID``: hero source ID (users do not need to pay attention to this data, the explanation of this value can

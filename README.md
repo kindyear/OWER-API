@@ -84,6 +84,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
     "playerName": "KINDYEAR",
     "playerTitle": "Extraterrestrial",
     "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5c670baeda5a7b2ed707c940f6b17773e9fd41fe783a8810ea9283cd55d6fd43.png",
+    "playerIconID": "0x02500000000068A2",
+    "playerNameCardID": "0x02500000000068A2",
     "endorsementLevel": 2
   },
   "playerCompetitiveInfo": {
@@ -114,6 +116,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
     * ``playerName``：玩家的昵称
     * ``playerTitle``：玩家的头衔
     * ``playerIcon``：玩家的头像
+  * ``playerIconID``：玩家的头像ID
+  * ``playerNameCardID``：玩家的名片ID
     * ``endorsementLevel``：玩家的赞赏等级
 * ``playerCompetitiveInfo``：玩家的竞技比赛信息
     * ``PC``：玩家的PC端竞技比赛信息
@@ -166,6 +170,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
   "playerTag": "KINDYEAR-1336",
   "playerName": "KINDYEAR",
   "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
+  "playerIconID": "0x02500000000068A2",
+  "playerNameCardID": "0x02500000000068A2",
   "gameMode": "quickPlay",
   "type": "weapon-accuracy",
   "heroRankings": [
@@ -196,6 +202,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 * ``playerTag``：玩家的BattleTag（战网ID）
 * ``playerName``：玩家的昵称
 * ``playerIcon``：玩家的头像
+* ``playerIconID``：玩家的头像ID
+* ``playerNameCardID``：玩家的名片ID
 * ``gameMode``：游戏模式（分为`quickPlay`快速模式和`competitive`竞技模式）
 * ``type``：请求的数据排行类型
 * ``heroRankings``：英雄排行数据
@@ -242,6 +250,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
       "playerTag": "KINDYEAR-1336",
       "playerName": "KINDYEAR",
       "playerIcon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7680cd5f24ef316f4218917ef5a8e8f1b9d2d39c14805c35a9a5542440464ffa.png",
+      "playerIconID": "0x02500000000068A2",
+      "playerNameCardID": "0x02500000000068A2",
       "heroID": 0,
       "heroName": "ALL HEROES",
       "heroSourceID": "0",
@@ -465,6 +475,8 @@ API路径为：``http(s)://yourdomain.com:port/v1/api/{ROUTER}``
 * ``playerTag``：玩家的BattleTag（战网ID）
 * ``playerName``：玩家的昵称
 * ``playerIcon``：玩家的头像
+* ``playerIconID``：玩家的头像ID
+* ``playerNameCardID``：玩家的名片ID
 * ``heroID``：英雄ID
 * ``heroName``：英雄名称
 * ``heroSourceID``：英雄源ID（使用者不必关注此数据，该值的解释可以看后面）

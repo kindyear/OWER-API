@@ -7,8 +7,13 @@ const nameSearch = require("./others/nameSearch"); // 更新为您的JSON模板�
 async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
     let browser;
     try {
-        playerTag = await nameSearch(playerTag);
+        let playerNameCardID = "";
+        let playerAvatarID = "";
+        [playerTag, playerNameCardID, playerAvatarID] = await nameSearch(playerTag);
+
         console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerNameCardID: ${playerNameCardID}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerAvatarID: ${playerAvatarID}`);
         if (playerTag === "Player Not Found.") {
             return "Player Not Found.";
         }
@@ -79,6 +84,9 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
                 private: isPrivate,
                 playerTag: playerTag,
                 playerName: playerName,
+                playerIcon: playerIcon,
+                playerIconID: playerAvatarID.trim(),
+                playerNameCardID: playerNameCardID.trim(),
                 heroID: heroID,
                 heroName: heroName,
                 quickHeroData: [],
@@ -153,6 +161,8 @@ async function scrapeHeroQuickInfo(playerTag, heroID, errorCallback) {
             playerTag,
             playerName: playerName,
             playerIcon: playerIcon,
+            playerIconID: playerAvatarID.trim(),
+            playerNameCardID: playerNameCardID.trim(),
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,
             heroSourceID: selectedHero.heroSourceID,

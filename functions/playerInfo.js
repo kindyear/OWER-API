@@ -15,8 +15,14 @@ async function playerInfo(playerTag) {
     try {
         console.log(`${getCurrentTime()} Received API request: \u001b[33m${playerTag}\u001b[0m`);
 
-        playerTag = await nameSearch(playerTag);
+        let playerNameCardID = "";
+        let playerAvatarID = "";
+        [playerTag, playerNameCardID, playerAvatarID] = await nameSearch(playerTag);
+
         console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerNameCardID: ${playerNameCardID}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerAvatarID: ${playerAvatarID}`);
+
         if (playerTag === "Player Not Found.") {
             return "Player Not Found.";
         }
@@ -141,7 +147,9 @@ async function playerInfo(playerTag) {
                 playerName: playerName.trim(),
                 playerTitle: playerTitle.trim(),
                 playerIcon: playerIcon.trim(),
-                endorsementLevel: parseInt(endorsementLevel),
+                playerIconID: playerAvatarID.trim(),
+                playerNameCardID: playerNameCardID.trim(),
+                endorsementLevel: parseInt(endorsementLevel)
             },
             //用户竞技信息
             playerCompetitiveInfo: playerCompetitiveInfo,

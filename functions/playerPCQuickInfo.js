@@ -26,8 +26,13 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
     try {
         console.log(`${getCurrentTime()} Received API request for quick play hero rankings: \u001b[33m${playerTag}\u001b[0m type: \u001b[33m${type}\u001b[0m`);
 
-        playerTag = await nameSearch(playerTag);
+        let playerNameCardID = "";
+        let playerAvatarID = "";
+        [playerTag, playerNameCardID, playerAvatarID] = await nameSearch(playerTag);
+
         console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerNameCardID: ${playerNameCardID}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerAvatarID: ${playerAvatarID}`);
         if (playerTag === "Player Not Found.") {
             return "Player Not Found.";
         }
@@ -91,6 +96,8 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
                 playerTag: playerTag,
                 playerName: playerName,
                 playerIcon: playerIcon,
+                playerIconID: playerAvatarID.trim(),
+                playerNameCardID: playerNameCardID.trim(),
                 gameMode: 'quickPlay',
                 type: type ? type.toLowerCase() : null,
                 heroRankings: [],
@@ -134,6 +141,8 @@ async function scrapeHeroQuickPlayRankings(playerTag, type) {
             playerTag,
             playerName: playerName,
             playerIcon: playerIcon,
+            playerIconID: playerAvatarID.trim(),
+            playerNameCardID: playerNameCardID.trim(),
             gameMode: 'quickPlay',
             type: selectedType,
             heroRankings,

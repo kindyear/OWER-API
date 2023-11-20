@@ -11,13 +11,17 @@ module.exports = function nameSearch(playerTag) {
                 const exactMatch = apiData.find(info => info.battleTag === rawPlayerTag);
                 if (exactMatch) {
                     const exactMatchBattleTag = exactMatch.battleTag.replace("#", "-");
-                    return exactMatchBattleTag;
+                    const exactMatchPlayerNameCardID = exactMatch.namecard;
+                    const exactMatchPlayerAvatarID = exactMatch.portrait;
+                    return [exactMatchBattleTag, exactMatchPlayerNameCardID, exactMatchPlayerAvatarID];
                 } else {
                     const lowerCasePlayerTag = rawPlayerTag.toLowerCase();
                     const fuzzyMatch = apiData.find(info => info.battleTag.toLowerCase() === lowerCasePlayerTag);
                     if (fuzzyMatch) {
                         const fuzzyMatchBattleTag = fuzzyMatch.battleTag.replace("#", "-");
-                        return fuzzyMatchBattleTag;
+                        const fuzzyMatchPlayerNameCardID = fuzzyMatch.namecard;
+                        const fuzzyMatchPlayerAvatarID = fuzzyMatch.portrait;
+                        return [fuzzyMatchBattleTag, fuzzyMatchPlayerNameCardID, fuzzyMatchPlayerAvatarID];
                     } else {
                         return "Player Not Found.";
                     }

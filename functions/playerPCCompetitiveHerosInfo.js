@@ -9,8 +9,13 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
     let browser;
     try {
 
-        playerTag = await nameSearch(playerTag);
+        let playerNameCardID = "";
+        let playerAvatarID = "";
+        [playerTag, playerNameCardID, playerAvatarID] = await nameSearch(playerTag);
+
         console.log(`${getCurrentTime()} 搜索匹配后的playerTag: ${playerTag}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerNameCardID: ${playerNameCardID}`);
+        console.log(`${getCurrentTime()} 搜索匹配后的playerAvatarID: ${playerAvatarID}`);
         if (playerTag === "Player Not Found.") {
             return "Player Not Found.";
         }
@@ -81,6 +86,8 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
                 playerTag: playerTag,
                 playerName: playerName,
                 playerIcon: playerIcon,
+                playerIconID: playerAvatarID.trim(),
+                playerNameCardID: playerNameCardID.trim(),
                 heroID: heroID,
                 heroName: heroName,
                 competitiveHeroData: [],
@@ -153,6 +160,8 @@ async function scrapeHeroCompetitiveInfo(playerTag, heroID) {
             playerTag,
             playerName: playerName,
             playerIcon: playerIcon,
+            playerIconID: playerAvatarID.trim(),
+            playerNameCardID: playerNameCardID.trim(),
             heroID: selectedHero.heroID,
             heroName: selectedHero.heroName,
             heroSourceID: selectedHero.heroSourceID,
